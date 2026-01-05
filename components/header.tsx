@@ -7,6 +7,7 @@ import { useEffect, useState } from "react"
 import { motion, type Variants } from "framer-motion"
 import { profile } from "@/data/profile"
 import { PremiumButton } from "./premium-button"
+import Image from "next/image"
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -43,7 +44,7 @@ export function Header() {
   const pathname = usePathname()
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-const [scrollProgress, setScrollProgress] = useState(0)
+  const [scrollProgress, setScrollProgress] = useState(0)
 
 
   useEffect(() => {
@@ -56,18 +57,18 @@ const [scrollProgress, setScrollProgress] = useState(0)
 
 
 
-useEffect(() => {
-  const handleScroll = () => {
-    const scrollTop = window.scrollY
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight
-    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0
-    setScrollProgress(progress)
-  }
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0
+      setScrollProgress(progress)
+    }
 
-  window.addEventListener("scroll", handleScroll)
-  handleScroll()
-  return () => window.removeEventListener("scroll", handleScroll)
-}, [])
+    window.addEventListener("scroll", handleScroll)
+    handleScroll()
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
 
 
@@ -79,11 +80,10 @@ useEffect(() => {
         initial="hidden"
         animate="visible"
         variants={containerVariants}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
             ? "bg-slate-950/70 backdrop-blur-xl border-b border-cyan-500/10"
             : "bg-transparent border-b border-transparent"
-        }`}
+          }`}
       >
         {/* Animated border gradient on scroll */}
         {scrolled && (
@@ -113,14 +113,15 @@ useEffect(() => {
                   }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ type: "spring", stiffness: 400, damping: 15 }}
-                  className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-400 to-cyan-500 flex items-center justify-center font-bold text-slate-950 cursor-pointer relative overflow-hidden"
+                  className="w-14 h-14 rounded-lg overflow-hidden cursor-pointer relative"
                 >
-                  {/* Glow effect inside logo */}
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-br from-cyan-300 to-cyan-600 rounded-lg opacity-0 blur-md"
-                    whileHover={{ opacity: 0.8 }}
+                  <Image
+                    src="/Atik.png"
+                    alt="Atik logo"
+                    fill                   // fills parent 40x40 box
+                    className="object-contain"
+                    sizes="40px"
                   />
-                  <span className="relative z-10">{profile.initials}</span>
                 </motion.div>
               </Link>
             </motion.div>
@@ -157,11 +158,10 @@ useEffect(() => {
 
                       {/* Text with color animation */}
                       <motion.span
-                        className={`relative transition-colors duration-300 ${
-                          isActive
+                        className={`relative transition-colors duration-300 ${isActive
                             ? "text-cyan-400"
                             : "text-gray-400 hover:text-cyan-400"
-                        }`}
+                          }`}
                         whileHover={{ letterSpacing: "0.5px" }}
                       >
                         {item.label}
@@ -282,11 +282,10 @@ useEffect(() => {
                   <Link
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`block px-4 py-3 rounded-lg transition-all ${
-                      isActive
+                    className={`block px-4 py-3 rounded-lg transition-all ${isActive
                         ? "bg-cyan-500/20 text-cyan-400 border-l-2 border-cyan-400"
                         : "text-gray-400 hover:text-cyan-400 hover:bg-cyan-500/10"
-                    }`}
+                      }`}
                   >
                     {item.label}
                   </Link>
@@ -323,15 +322,15 @@ useEffect(() => {
         </motion.div>
       </motion.header>
 
-    {/* Scroll progress bar */}
-<motion.div
-  className="fixed top-16 left-0 h-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-500 z-50"
-  style={{
-    width: `${scrollProgress}%`,
-    background: "linear-gradient(90deg, #06f9f1, #a855f7, #06f9f1)",
-  }}
-  transition={{ duration: 0.1 }}
-/>
+      {/* Scroll progress bar */}
+      <motion.div
+        className="fixed top-16 left-0 h-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-500 z-50"
+        style={{
+          width: `${scrollProgress}%`,
+          background: "linear-gradient(90deg, #06f9f1, #a855f7, #06f9f1)",
+        }}
+        transition={{ duration: 0.1 }}
+      />
 
     </>
   )

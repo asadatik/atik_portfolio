@@ -251,7 +251,7 @@ export function HeroSection() {
                                     <PremiumButton
                                         text="Projects"
                                         icon="→"
-                                        variant="primary"
+                                        variant="success"
                                         size="medium"
                                     />
                                 </Link>
@@ -307,9 +307,7 @@ export function HeroSection() {
                         )}
                     </motion.div>
 
-                    {/* ============================================
-              RIGHT SIDE: DEVELOPER PHOTO & 3D VISUAL
-              ============================================ */}
+         {/* Photo Container */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9, x: 50 }}
                         animate={{ opacity: 1, scale: 1, x: 0 }}
@@ -320,10 +318,7 @@ export function HeroSection() {
                     </motion.div>
                 </div>
             </div>
-
-            {/* ============================================
-          SCROLL INDICATOR
-          ============================================ */}
+{/* Scroll Indicator */}
             <motion.div
                 className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
                 animate={{ y: [0, 12, 0] }}

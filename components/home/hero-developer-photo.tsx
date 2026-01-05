@@ -1,43 +1,71 @@
 // components/hero-developer-photo.tsx
 "use client"
 
+
+
+import {
+  SiNextdotjs,
+  SiTypescript,
+  SiPostgresql,
+ 
+  SiReact,
+  SiNodedotjs,
+  SiMongodb,
+} from "@icons-pack/react-simple-icons"
+
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import Image from "next/image"
 
 interface SkillIcon {
   name: string
-  icon: string
+  icon: React.ComponentType<{ className?: string }>
   color: string
   description: string
 }
 
+
 const skills: SkillIcon[] = [
   {
-    name: "React/Next.js",
-    icon: "⚛️",
-    color: "from-cyan-400 to-blue-500",
-    description: "Frontend Development",
+    name: "Next.js",
+    icon: SiNextdotjs,
+    color: "from-cyan-400/40 to-blue-500/0",
+    description: "App Router, SSR, API routes",
   },
   {
-    name: "Node.js",
-    icon: "🟢",
-    color: "from-green-400 to-emerald-500",
-    description: "Backend Runtime",
+    name: "React",
+    icon: SiReact,
+    color: "from-sky-400/40 to-cyan-500/0",
+    description: "Interactive UIs & SPA",
   },
   {
-    name: "Database",
-    icon: "🗄️",
-    color: "from-purple-400 to-pink-500",
-    description: "PostgreSQL & MongoDB",
+    name: "TypeScript",
+    icon: SiTypescript,
+    color: "from-blue-500/40 to-indigo-500/0",
+    description: "Type‑safe full‑stack code",
   },
   {
-    name: "Cloud",
-    icon: "☁️",
-    color: "from-blue-400 to-cyan-500",
-    description: "AWS & Vercel",
+    name: "Node.js & Express",
+    icon: SiNodedotjs,
+    color: "from-emerald-400/40 to-green-500/40",
+    description: "APIs, backend services",
+  },
+
+  {
+    name: "PostgreSQL",
+    icon: SiPostgresql,
+    color: "from-sky-500/50 to-blue-600/0",
+    description: "Relational database",
+  },
+
+    {
+    name: "MongoDB",
+    icon: SiMongodb,
+    color: "from-emerald-400/40 to-emerald-500/0",
+    description: "Document database",
   },
 ]
+
 
 export function HeroDeveloperPhoto() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
@@ -55,21 +83,21 @@ export function HeroDeveloperPhoto() {
     return () => window.removeEventListener("mousemove", handleMouseMove)
   }, [])
 
+  
   // Calculate orbital positions for skill icons
   const getSkillPosition = (index: number) => {
     const angle = (index / skills.length) * Math.PI * 2
-    const radius = 120
+
+    const radius = 220
     return {
-      x: Math.cos(angle) * radius,
-      y: Math.sin(angle) * radius,
+      x: radius * Math.cos(angle),
+      y: radius * Math.sin(angle),
+
     }
   }
 
   return (
-    <div className="relative w-full h-full flex items-center justify-center">
-      {/* ============================================
-          BACKGROUND ANIMATED SHAPES
-          ============================================ */}
+    <div className="relative   w-full h-full flex items-center justify-center">
 
       {/* Top-left morphing circle */}
       <motion.div
@@ -102,12 +130,10 @@ export function HeroDeveloperPhoto() {
         }}
       />
 
-      {/* ============================================
-          MAIN PHOTO FRAME WITH PARALLAX
-          ============================================ */}
+
 
       <motion.div
-        className="relative w-80 h-96 md:w-96 md:h-[480px]"
+        className="relative w-80 h-96 md:w-96  md:h-[480px]"
         animate={{
           x: mousePosition.x,
           y: mousePosition.y,
@@ -134,7 +160,7 @@ export function HeroDeveloperPhoto() {
 
         {/* Inner glow */}
         <motion.div
-          className="absolute inset-0 rounded-2xl border border-cyan-400/30 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 backdrop-blur-xl overflow-hidden"
+          className="absolute inset-0 rounded-full border-4 border-cyan-400/30 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 backdrop-blur-xl overflow-hidden"
           animate={{
             borderColor: [
               "rgba(6, 249, 241, 0.3)",
@@ -149,33 +175,29 @@ export function HeroDeveloperPhoto() {
             ease: "easeInOut",
           }}
         >
+
+
           {/* Photo */}
-          <div className="relative w-full h-full overflow-hidden rounded-2xl">
+          <div className="relative   w-full h-full overflow-hidden ">
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-transparent to-purple-500/20" />
+
             <div className="w-full h-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center">
-              <div className="text-center">
-                <motion.div
-                  className="text-6xl mb-4"
-                  animate={{ scale: [1, 1.1, 1] }}
-                  transition={{
-                    duration: 3,
-                    repeat: Number.POSITIVE_INFINITY,
-                  }}
-                >
-                  👨‍💻
-                </motion.div>
-                <p className="text-gray-400 text-sm">
-                  Add your photo here
-                </p>
+              <div className="relative w-full h-full">
+                <Image
+                  src="/Atik.pic.png"      // can be atik-avatar.png if square
+                  alt="Atik - Full-stack Developer"
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 1024px) 480px, 100vw"
+                  priority
+                />
               </div>
             </div>
 
             {/* Animated shine effect */}
             <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
-              animate={{
-                x: ["100%", "-100%"],
-              }}
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none"
+              animate={{ x: ["100%", "-100%"] }}
               transition={{
                 duration: 3,
                 repeat: Number.POSITIVE_INFINITY,
@@ -184,15 +206,15 @@ export function HeroDeveloperPhoto() {
               }}
             />
           </div>
+
         </motion.div>
 
-        {/* ============================================
-            ORBITAL SKILL ICONS
-            ============================================ */}
+        {/* Skill Icons Container */}
+
 
         {skills.map((skill, index) => {
           const position = getSkillPosition(index)
-
+              const Icon = skill.icon    
           return (
             <motion.div
               key={skill.name}
@@ -214,7 +236,7 @@ export function HeroDeveloperPhoto() {
             >
               {/* Skill Icon Button */}
               <motion.div
-                className={`relative w-16 h-16 rounded-full border-2 border-cyan-400/30 bg-gradient-to-br ${skill.color} flex items-center justify-center text-2xl cursor-pointer overflow-hidden group`}
+                className={`relative w-14 h-14 rounded-full border-2 border-cyan-400/30 bg-gradient-to-br ${skill.color} flex items-center justify-center text-2xl cursor-pointer overflow-hidden group`}
                 whileHover={{
                   scale: 1.15,
                   boxShadow: `0 0 30px rgba(6, 249, 241, 0.5)`,
@@ -242,7 +264,7 @@ export function HeroDeveloperPhoto() {
                     scale: hoveredSkill === skill.name ? 1.2 : 1,
                   }}
                 >
-                  {skill.icon}
+                <Icon className="w-10 h-8" />
                 </motion.span>
 
                 {/* Pulse effect on hover */}
