@@ -73,7 +73,7 @@ export function HeroDeveloperPhoto() {
 
       {/* Top-left morphing circle */}
       <motion.div
-        className="absolute -top-20 -left-20 w-80 h-80 rounded-full bg-gradient-to-br from-cyan-500/10 to-blue-500/5 blur-3xl"
+        className="absolute -top-20 -left-20 w-80 h-80 rounded-full bg-linear-to-br from-cyan-500/10 to-blue-500/5 blur-3xl"
         animate={{
           scale: [1, 1.2, 0.95, 1],
           x: [0, 20, -10, 0],
