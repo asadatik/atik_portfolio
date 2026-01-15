@@ -1,7 +1,7 @@
 // components/home/bento-highlights.tsx
 "use client"
 
-import { motion } from "framer-motion"
+import { motion  , type Variants} from "framer-motion"
 import { Code2, Zap, Briefcase, Sparkles, ArrowRight, TrendingUp } from "lucide-react"
 import Link from "next/link"
 import { profile } from "@/data/profile"
@@ -9,7 +9,7 @@ import { projects } from "@/data/projects"
 import { skills } from "@/data/skills"
 import { PremiumButton } from "@/components/premium-button"
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
@@ -20,7 +20,7 @@ const containerVariants = {
   },
 }
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
   show: {
     opacity: 1,
