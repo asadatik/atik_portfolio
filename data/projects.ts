@@ -25,206 +25,216 @@ export interface Project {
 }
 
 export const projects: Project[] = [
-  {
-    slug: "ecommerce-platform",
-    title: "E-commerce Platform",
-    tagline: "Full-stack marketplace with real-time inventory",
-    description:
-      "A modern e-commerce platform with Stripe integration, real-time inventory tracking, and an admin dashboard.",
-    type: "Full-stack",
-    featured: true,
-    thumbnail: "/modern-ecommerce-dashboard.png",
-    problem:
-      "Small businesses needed an affordable, easy-to-manage online store solution with robust payment processing and inventory management.",
-    solution:
-      "Built a full-stack Next.js application with Stripe for payments, PostgreSQL for data persistence, and a real-time admin dashboard for managing products and orders.",
-    techStack: {
-      frontend: ["Next.js", "TypeScript", "Tailwind CSS", "React Query"],
-      backend: ["Next.js API Routes", "Node.js", "Stripe API", "Webhooks"],
-      database: ["PostgreSQL", "Prisma"],
-      other: ["Vercel", "Docker", "Redis"],
-    },
-    features: [
-      "Secure Stripe checkout with subscription support",
-      "Real-time inventory tracking and low-stock alerts",
-      "Admin dashboard with analytics and reporting",
-      "Customer order history and tracking",
-      "Responsive design optimized for mobile shopping",
-      "Email notifications for orders and shipments",
+
+{
+  slug: "travel-booking-platform",
+  title: "Travel Booking & Payment Management System",
+  tagline: "Role-based travel booking platform with secure payments and admin control",
+
+  description:
+    "A full-stack travel booking platform where users can explore travel packages, create bookings, and manage payments, while admins control packages, bookings, and payment workflows through a secure dashboard.",
+
+  type: "Full-stack",
+  featured: true,
+  thumbnail: "/travel-dashboard.png",
+
+  problem:
+    "Many travel booking systems fail to properly separate user and admin responsibilities, leading to security risks, poor access control, and unreliable payment and booking management.",
+
+  solution:
+    "Developed a role-based full-stack travel booking system using Next.js and TypeScript. The platform includes secure JWT cookie-based authentication, protected routes, admin dashboards, booking management, and a scalable payment-ready architecture.",
+
+  techStack: {
+    frontend: [
+      "Next.js (App Router)",
+      "TypeScript",
+      "Tailwind CSS",
+      "Redux Toolkit",
+      "Axios"
     ],
-    result:
-      "Successfully launched with 500+ products and processing $20K+ in monthly transactions. Admin team reports 60% reduction in time spent on inventory management.",
-    metrics: ["500+ products", "$20K+ monthly transactions", "60% time savings"],
-    links: {
-      demo: "https://ecommerce-demo.example.com",
-      github: "https://github.com/alexjohnson/ecommerce-platform",
-    },
-  },
-  {
-    slug: "task-management-app",
-    title: "Task Management App",
-    tagline: "Collaborative task tracker with real-time updates",
-    description:
-      "A team collaboration tool for managing tasks, projects, and deadlines with real-time synchronization.",
-    type: "Full-stack",
-    featured: true,
-    thumbnail: "/task-management-kanban.png",
-    problem:
-      "Remote teams struggled with disconnected task management tools that lacked real-time collaboration features.",
-    solution:
-      "Created a real-time task management application using Next.js, WebSockets for live updates, and a drag-and-drop interface for intuitive task organization.",
-    techStack: {
-      frontend: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "React DnD"],
-      backend: ["Node.js", "Express", "Socket.io", "JWT Auth"],
-      database: ["MongoDB", "Redis"],
-      other: ["Vercel", "GitHub Actions"],
-    },
-    features: [
-      "Real-time task updates across all team members",
-      "Drag-and-drop Kanban board interface",
-      "Project timelines and deadline tracking",
-      "Team member assignment and notifications",
-      "Activity feed and comment threads",
-      "Dark mode and customizable themes",
+    backend: [
+      "Node.js",
+      "Express.js",
+      "JWT Authentication (HttpOnly Cookies)",
+      "Zod Validation"
     ],
-    result:
-      "Adopted by 3 teams (20+ users) with 95% daily active usage rate. Users report 30% improvement in project delivery times.",
-    metrics: ["20+ active users", "95% daily engagement", "30% faster delivery"],
-    links: {
-      demo: "https://taskapp-demo.example.com",
-      github: "https://github.com/alexjohnson/task-app",
-    },
-  },
-  {
-    slug: "api-analytics-dashboard",
-    title: "API Analytics Dashboard",
-    tagline: "Monitor API performance with beautiful visualizations",
-    description: "Real-time analytics dashboard for tracking API requests, performance metrics, and error rates.",
-    type: "Frontend",
-    featured: true,
-    thumbnail: "/analytics-dashboard-charts-graphs.jpg",
-    problem:
-      "Developers needed an intuitive way to monitor their API performance, track error rates, and identify bottlenecks.",
-    solution:
-      "Designed and built a comprehensive analytics dashboard with real-time charts, customizable metrics, and alerting capabilities.",
-    techStack: {
-      frontend: ["React", "TypeScript", "Recharts", "Tailwind CSS", "React Query"],
-      backend: ["Existing REST API"],
-      database: [],
-      other: ["Vercel", "Websockets"],
-    },
-    features: [
-      "Real-time request monitoring and latency tracking",
-      "Interactive charts for traffic patterns and trends",
-      "Error rate monitoring with stack trace integration",
-      "Custom alerts for performance thresholds",
-      "Historical data comparison and export",
-      "Multi-API support with team workspaces",
+    database: [
+      "MongoDB",
+      "Mongoose"
     ],
-    result:
-      "Reduced average time to identify performance issues from hours to minutes. Dashboard processes 1M+ API requests daily.",
-    metrics: ["1M+ daily requests tracked", "80% faster issue detection"],
-    links: {
-      demo: "https://api-analytics-demo.example.com",
-    },
+    other: [
+      "Role-based Access Control (RBAC)",
+      "Protected Routes",
+      "Dashboard Analytics"
+    ]
   },
-  {
-    slug: "ai-content-generator",
-    title: "AI Content Generator",
-    tagline: "Generate marketing copy with AI assistance",
-    description: "AI-powered tool for generating marketing content, blog posts, and social media copy.",
-    type: "Full-stack",
-    featured: false,
-    thumbnail: "/ai-content-writing-interface.png",
-    problem:
-      "Content creators needed a faster way to generate high-quality marketing copy and overcome writer's block.",
-    solution:
-      "Built an AI-assisted content generation tool integrating OpenAI's API with customizable templates and tone settings.",
-    techStack: {
-      frontend: ["Next.js", "TypeScript", "Tailwind CSS"],
-      backend: ["Next.js API Routes", "OpenAI API"],
-      database: ["PostgreSQL", "Prisma"],
-      other: ["Vercel", "Stripe"],
-    },
-    features: [
-      "Multiple content types (blogs, ads, social posts)",
-      "Tone and style customization",
-      "Content history and favorites",
-      "Export to multiple formats",
-      "Usage tracking and billing",
-      "Template marketplace",
+
+  features: [
+    "Role-based authentication for Admin and User",
+    "Secure JWT authentication using HttpOnly cookies",
+    "Public package listing with filtering and details view",
+    "User booking creation and booking history",
+    "Admin dashboard for managing packages, bookings, and payments",
+    "Protected frontend routes with auth guards",
+    "Backend route-level authorization middleware",
+    "Centralized error handling and API validation",
+    "Payment-ready architecture with future gateway support",
+    "Responsive UI with modern dashboard layout"
+  ],
+
+  result:
+    "Delivered a secure and scalable travel booking platform demonstrating real-world authentication, authorization, and full-stack system design patterns.",
+
+  metrics: [
+    "2 user roles implemented",
+    "25+ backend APIs",
+    "End-to-end booking & payment flow"
+  ],
+
+  links: {
+    demo: "https://travel-booking-demo.example.com",
+    github: "https://github.com/yourusername/travel-booking-platform"
+  }
+}
+,
+
+
+
+{
+  slug: "farmabazar",
+  title: "FarmaBazar",
+  tagline: "Role-based online medicine marketplace with secure payments",
+  description:
+    "FarmaBazar is a full-stack web application that enables users to purchase medicines online while allowing sellers to manage products and admins to control the platform through role-based dashboards.",
+  type: "Full-stack",
+  featured: true,
+  thumbnail: "/farmabazar-dashboard.png",
+
+  problem:
+    "Local medicine sellers and pharmacies often lack a centralized digital platform to sell medicines online, manage inventory, and track payments securely with proper role-based access control.",
+
+  solution:
+    "Built a full-stack role-based medicine marketplace using Next.js and TypeScript. The system supports admin, seller, and user dashboards, secure JWT-based authentication, Stripe payment integration, invoice generation, and advanced reporting features.",
+
+  techStack: {
+    frontend: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "React Hook Form",
+      "Redux Toolkit"
     ],
-    result:
-      "300+ users generating 5K+ pieces of content monthly. Average user reports 50% reduction in content creation time.",
-    metrics: ["300+ users", "5K+ monthly generations", "50% time saved"],
-    links: {
-      demo: "https://ai-content-demo.example.com",
-      github: "https://github.com/alexjohnson/ai-content",
-    },
-  },
-  {
-    slug: "portfolio-builder",
-    title: "Portfolio Builder",
-    tagline: "Create stunning developer portfolios in minutes",
-    description: "A no-code tool for developers to create and customize their portfolio websites.",
-    type: "Full-stack",
-    featured: false,
-    thumbnail: "/portfolio-builder-interface.png",
-    problem:
-      "Developers wanted professional portfolio websites but lacked design skills or time to build from scratch.",
-    solution:
-      "Created a drag-and-drop portfolio builder with professional templates, custom domain support, and one-click deployment.",
-    techStack: {
-      frontend: ["React", "TypeScript", "Tailwind CSS", "React DnD"],
-      backend: ["Node.js", "Express"],
-      database: ["MongoDB"],
-      other: ["AWS S3", "Cloudflare"],
-    },
-    features: [
-      "Drag-and-drop interface with live preview",
-      "10+ professional templates",
-      "Custom domain support",
-      "One-click deployment",
-      "SEO optimization built-in",
-      "Analytics integration",
+    backend: [
+      "Node.js",
+      "Express.js",
+      "JWT Authentication",
+      "Stripe API"
     ],
-    result: "200+ portfolios created in first 3 months. 90% of users deploy within 30 minutes of starting.",
-    metrics: ["200+ portfolios", "90% completion rate", "30min average build time"],
-    links: {
-      demo: "https://portfolio-builder-demo.example.com",
-    },
+    database: ["MongoDB", "Mongoose"],
+    other: [
+      "Firebase Authentication",
+      "React Helmet",
+      "PDF & Excel Export"
+    ]
   },
-  {
-    slug: "weather-app",
-    title: "Weather Forecast App",
-    tagline: "Beautiful weather forecasts with location search",
-    description: "Clean and minimal weather application with 7-day forecasts and location-based recommendations.",
-    type: "Frontend",
-    featured: false,
-    thumbnail: "/weather-app-forecast-interface.jpg",
-    problem:
-      "Existing weather apps were cluttered with ads and unnecessary features, making it hard to quickly check the forecast.",
-    solution:
-      "Built a minimal, fast-loading weather app focused on essential information with a beautiful, distraction-free interface.",
-    techStack: {
-      frontend: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
-      backend: ["Weather API"],
-      database: [],
-      other: ["Geolocation API"],
-    },
-    features: [
-      "Current conditions and 7-day forecast",
-      "Location search and auto-detection",
-      "Hourly temperature charts",
-      "Severe weather alerts",
-      "Favorite locations",
-      "Smooth animations and transitions",
+
+  features: [
+    "Role-based authentication for Admin, Seller, and User",
+    "Medicine management with category-wise filtering",
+    "Advanced tables with pagination, sorting, and search",
+    "Stripe payment integration with paid and pending status",
+    "Invoice generation with download and print support",
+    "Admin dashboard with sales revenue overview",
+    "Seller dashboard with medicine and payment management",
+    "Sales report with date range filter and export options",
+    "Banner advertisement management by admin",
+    "JWT-secured private routes and protected APIs"
+  ],
+
+  result:
+    "Successfully implemented a complete end-to-end healthcare e-commerce platform demonstrating secure authentication, payment processing, and scalable role-based system design.",
+
+  metrics: [
+    "3 user roles implemented",
+    "30+ functional features",
+    "Secure payment & reporting workflows"
+  ],
+
+  links: {
+    demo: "https://farmabazar-demo.example.com",
+    github: "https://github.com/yourusername/farmabazar"
+  }
+} 
+,
+{
+  "slug": "eventsphere",
+  "title": "EventSphere",
+  "tagline": "Smart Event Management and Booking Platform with Community & Membership",
+  "description": "EventSphere is a full-stack web application designed for efficient event discovery, booking, and management. It supports role-based dashboards for admins, event organizers, and users, offering real-time seat selection, QR ticketing, interactive venue tours, membership tiers, and community engagement features.",
+  "type": "Full-stack",
+  "featured": true,
+  "thumbnail": "/eventsphere-dashboard.png",
+
+  "problem": "Event discovery and booking platforms often lack centralized role-based management, community engagement, membership benefits, and real-time features, making it difficult for organizers to manage events and for users to have a seamless, interactive experience.",
+
+  "solution": "Built a full-stack, role-based event management platform using Next.js and React for the frontend, Node.js and Express for the backend, and MongoDB for the database. Implemented secure authentication with NextAuth and JWT, Stripe payments, real-time chat/video support, community posts, membership tiers, and analytics dashboards.",
+
+  "techStack": {
+    "frontend": [
+      "Next.js",
+      "React.js",
+      "Tailwind CSS",
+      "Radix UI",
+      "Framer Motion",
+      "React Query",
+      "React Hook Form",
+      "Zustand"
     ],
-    result: "Featured on Product Hunt with 500+ upvotes. 10K+ monthly active users and 4.8/5 rating.",
-    metrics: ["10K+ monthly users", "4.8/5 rating", "500+ Product Hunt votes"],
-    links: {
-      demo: "https://weather-demo.example.com",
-      github: "https://github.com/alexjohnson/weather-app",
-    },
+    "backend": [
+      "Node.js",
+      "Express.js",
+      "NextAuth",
+      "JWT Authentication",
+      "Stripe API",
+      "Socket.io",
+      "Simple-Peer"
+    ],
+    "database": ["MongoDB", "Mongoose"],
+    "other": [
+      "EmailJS / Nodemailer / Mailgun",
+      "QR Code Generation",
+      "Chart.js / Recharts",
+      "Three.js & AR/3D venue visualization"
+    ]
   },
+
+  "features": [
+    "Role-based dashboards for Admin, Organizer, and User",
+    "Multi-category event management and booking",
+    "Real-time seat selection and QR code ticketing",
+    "Interactive venue tours with AR and 3D maps",
+    "Community posts and reviews for user engagement",
+    "Membership tiers: Gold, Diamond, Premium with exclusive benefits",
+    "Live messaging and video-call support for premium members",
+    "Stripe payment integration with secure checkout",
+    "Admin analytics dashboards and performance tracking",
+    "Event notifications, reminders, and social sharing"
+  ],
+
+  "result": "Successfully delivered a fully functional, production-level event management platform demonstrating advanced role-based access, real-time interactions, community engagement, and subscription-based membership workflows.",
+
+  "metrics": [
+    "3 distinct user roles implemented",
+    "50+ functional features across dashboards and user interactions",
+    "Integrated real-time communication and secure payments",
+    "Enhanced user retention via community and membership features"
+  ],
+
+  "links": {
+    "demo": "https://eventsphere-demo.example.com",
+    "github": "https://github.com/yourusername/eventsphere"
+  }
+}
+
+
 ]

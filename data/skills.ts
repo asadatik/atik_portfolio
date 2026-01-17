@@ -19,7 +19,6 @@ export const skills = {
     "Tailwind CSS",
     "Framer Motion",
     "React Query / TanStack Query",
-    "Zustand",
     "HTML5 & CSS3",
     "Responsive UI & accessibility",
   ],
@@ -39,19 +38,16 @@ export const skills = {
     "PostgreSQL",
     "MongoDB",
     "Prisma ORM",
-    "Supabase",
+    "Mongoose",
     "Redis (caching / sessions)",
   ],
 
   tools: [
     "Git & GitHub",
-    "Docker (basics)",
     "Vercel deployment",
-    "CI/CD pipelines",
     "Stripe API (payments & webhooks)",
     "VS Code",
     "Postman / API testing",
-    "Linux & CLI workflows",
   ],
 
   soft: [
