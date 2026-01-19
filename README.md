@@ -155,15 +155,8 @@ This portfolio is optimized for performance:
 - Efficient animations with `reduced-motion` support
 - Clean, semantic HTML for accessibility
 
-## Deployment
 
-Deploy to Vercel (recommended):
 
-```bash
-vercel
-```
-
-Or any other hosting platform that supports Next.js.
 
 ## License
 
