@@ -32,9 +32,3 @@ Showcases skills, projects, and interactive UI with modern glassmorphism and mot
 
 This portfolio template is open source and free to use for personal projects.
 
-## Support
-
-For issues or questions about customization, refer to:
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
-- [Framer Motion Documentation](https://www.framer.com/motion/)
