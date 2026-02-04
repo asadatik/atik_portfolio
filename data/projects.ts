@@ -173,70 +173,71 @@ export const projects: Project[] = [
 
 ,
 {
-  slug: "farmabazar",
-  title: "FarmaBazar",
-  tagline: "Role-based online medicine marketplace with secure payments",
+  slug: "parcelpro",
+  title: "ParcelPro",
+  tagline: "Role-based parcel delivery, tracking & payment platform",
   description:
-    "FarmaBazar is a full-stack web application that enables users to purchase medicines online while allowing sellers to manage products and admins to control the platform through role-based dashboards.",
+    "ParcelPro is a full-stack parcel delivery management system that enables users to send parcels, track delivery status in real time, and complete payments securely while administrators manage operations through a role-based dashboard.",
   type: "mern-stack",
   featured: true,
-  thumbnail: "/Fharma_bazar_thumbnail.png",
+  thumbnail: "/ParcelPro.png",
 
   problem:
-    "Local medicine sellers and pharmacies often lack a centralized digital platform to sell medicines online, manage inventory, and track payments securely with proper role-based access control.",
+    "Most local parcel delivery systems lack real-time tracking, structured admin control, and integrated digital payments, causing delays, poor transparency, and manual billing issues.",
 
   solution:
-    "Built a full-stack role-based medicine marketplace using Next.js and TypeScript. The system supports admin, seller, and user dashboards, secure JWT-based authentication, Stripe payment integration, invoice generation, and advanced reporting features.",
+    "Built a scalable parcel delivery platform with role-based access control, real-time status tracking, and a secure Stripe-powered payment flow. The system ensures transparent delivery updates, admin-controlled workflows, and seamless online payments.",
 
   techStack: {
     frontend: [
-      "Next.js",
+      "React.js",
       "TypeScript",
       "Tailwind CSS",
+      "Redux Toolkit",
       "React Hook Form",
-      "Redux Toolkit"
+      "Framer Motion"
     ],
     backend: [
       "Node.js",
       "Express.js",
       "JWT Authentication",
+      "Role-Based Access Control",
       "Stripe API"
     ],
     database: ["MongoDB", "Mongoose"],
     other: [
-      "Firebase Authentication",
-      "React Helmet",
-      "PDF & Excel Export"
+      "REST API Architecture",
+      "Secure Payment Workflow",
+      "Stripe Checkout & Webhooks"
     ]
   },
 
   features: [
-    "Role-based authentication for Admin, Seller, and User",
-    "Medicine management with category-wise filtering",
-    "Advanced tables with pagination, sorting, and search",
-    "Stripe payment integration with paid and pending status",
-    "Invoice generation with download and print support",
-    "Admin dashboard with sales revenue overview",
-    "Seller dashboard with medicine and payment management",
-    "Sales report with date range filter and export options",
-    "Banner advertisement management by admin",
-    "JWT-secured private routes and protected APIs"
+    "Role-based authentication for Admin, Sender, and Receiver",
+    "Admin dashboard for parcel and user management",
+    "Real-time parcel status tracking system",
+    "Parcel request, approval, and delivery workflow",
+    "Secure Stripe payment integration for parcel delivery",
+    "Payment status tracking (paid, pending, failed)",
+    "Admin-controlled parcel status updates",
+    "JWT-protected private routes and APIs",
+    "Scalable architecture for future service expansion"
   ],
 
   result:
-    "Successfully implemented a complete end-to-end healthcare e-commerce platform demonstrating secure authentication, payment processing, and scalable role-based system design.",
+    "Successfully delivered a production-ready parcel delivery platform demonstrating real-world logistics management, secure payments, and scalable full-stack system design.",
 
   metrics: [
     "3 user roles implemented",
-    "30+ functional features",
-    "Secure payment & reporting workflows"
+    "Stripe-based payment workflow",
+    "Real-time delivery tracking"
   ],
 
   links: {
-    demo: "https://medicine-selling.web.app",
-    github: "https://github.com/asadatik/FarmaBazar-Client"
+    demo: "https://percel-frontend.vercel.app",
+    github: "https://github.com/asadatik/parcel-booking-system-frontend"
   }
-} 
+}
 
 
 
