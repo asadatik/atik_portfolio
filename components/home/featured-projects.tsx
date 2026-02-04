@@ -1,4 +1,4 @@
-// components/home/featured-projects.tsx
+
 "use client"
 
 import { motion, useMotionValue, useTransform, AnimatePresence } from "framer-motion"
@@ -7,6 +7,7 @@ import { ArrowRight, ExternalLink, Github, ChevronLeft, ChevronRight, Sparkles }
 import Link from "next/link"
 import { projects, type Project } from "@/data/projects"
 import { PremiumButton } from "../premium-button"
+import Image from "next/image"
 
 
 export function FeaturedProjects() {
@@ -17,7 +18,7 @@ export function FeaturedProjects() {
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
 
-  // Get featured projects
+
   const featuredProjects = projects.filter((p) => p.featured).slice(0, 3)
 
   if (featuredProjects.length === 0) {
@@ -53,7 +54,7 @@ export function FeaturedProjects() {
     setIsAutoPlay(false)
   }
 
-  // Auto-rotate carousel
+
   useEffect(() => {
     if (!isAutoPlay || isHovered) return
 
@@ -65,7 +66,7 @@ export function FeaturedProjects() {
     return () => clearInterval(interval)
   }, [isAutoPlay, isHovered, featuredProjects.length])
 
-  // Resume autoplay after 8 seconds of inactivity
+
   useEffect(() => {
     if (isAutoPlay) return
 
@@ -101,11 +102,8 @@ export function FeaturedProjects() {
 
   return (
     <section className="relative py-24 md:py-32 bg-linear-to-b from-slate-950 via-slate-900 to-slate-950 overflow-hidden">
-      {/* ============================================
-          ANIMATED BACKGROUND ELEMENTS
-          ============================================ */}
 
-      {/* Top right glow */}
+
       <motion.div
         className="absolute top-0 right-0 w-96 h-96 rounded-full bg-linear-to-br from-cyan-500/15 to-blue-500/10 blur-3xl"
         animate={{
@@ -119,7 +117,7 @@ export function FeaturedProjects() {
         }}
       />
 
-      {/* Bottom left glow */}
+
       <motion.div
         className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-linear-to-tr from-purple-500/15 to-cyan-500/10 blur-3xl"
         animate={{
@@ -134,7 +132,7 @@ export function FeaturedProjects() {
         }}
       />
 
-      {/* Parallax moving gradient */}
+
       <motion.div
         className="absolute inset-0 opacity-20"
         style={{
@@ -156,9 +154,7 @@ export function FeaturedProjects() {
       />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* ============================================
-            SECTION HEADER
-            ============================================ */}
+
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -192,10 +188,6 @@ export function FeaturedProjects() {
           </p>
         </motion.div>
 
-        {/* ============================================
-            3D CAROUSEL CONTAINER
-            ============================================ */}
-
         <div
           className="relative max-w-5xl mx-auto"
           style={{ perspective: "1200px" }}
@@ -209,7 +201,7 @@ export function FeaturedProjects() {
             mouseY.set(0)
           }}
         >
-          {/* Background cards stack effect */}
+          {/* Background*/}
           <div className="absolute inset-0 flex items-center justify-center">
             {[2, 1].map((offset) => (
               <motion.div
@@ -232,7 +224,7 @@ export function FeaturedProjects() {
             ))}
           </div>
 
-          {/* Main carousel content */}
+          {/*  carousel  */}
           <div className="relative h-[650px] flex items-center justify-center">
             <AnimatePresence initial={false} custom={direction} mode="wait">
               <motion.div
@@ -255,17 +247,13 @@ export function FeaturedProjects() {
                 }}
                 className="w-full max-w-3xl px-4 md:px-0"
               >
-                {/* Project Card */}
+                {/* Card */}
                 <motion.div
                   whileHover={{ scale: 1.01 }}
                   transition={{ duration: 0.3 }}
                   className="rounded-2xl overflow-hidden relative group h-full"
                 >
-                  {/* ============================================
-                      ROTATING GRADIENT BORDER
-                      ============================================ */}
 
-                  {/* Outer glow layer */}
                   <motion.div
                     className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-purple-500/20 blur-xl -z-10"
                     animate={{
@@ -278,7 +266,6 @@ export function FeaturedProjects() {
                     }}
                   />
 
-                  {/* Border container */}
                   <motion.div
                     className="absolute inset-0 rounded-2xl p-px pointer-events-none"
                     animate={{
@@ -290,7 +277,7 @@ export function FeaturedProjects() {
                       ease: "easeInOut",
                     }}
                   >
-                    {/* Soft glow behind border */}
+
                     <motion.div
                       className="absolute inset-0 rounded-2xl blur-xl pointer-events-none"
                       animate={{
@@ -308,7 +295,7 @@ export function FeaturedProjects() {
                       }}
                     />
 
-                    {/* Actual border gradient */}
+
                     <motion.div
                       className="absolute inset-0 rounded-2xl pointer-events-none"
                       animate={{
@@ -327,32 +314,38 @@ export function FeaturedProjects() {
                     />
                   </motion.div>
 
-                  {/* Inner card background */}
                   <div className="absolute inset-px rounded-2xl bg-gradient-to-br from-cyan-900/95 to-slate-800/90 backdrop-blur-xl pointer-events-none" />
-
-                  {/* Content */}
+{/*  */}
                   <div className="relative z-10 h-full flex flex-col">
-                    {/* Image section */}
-                    <div className="relative h-80 overflow-hidden group/image">
-                      {/* Placeholder gradient or image */}
+
+                    <div className="relative h-96 overflow-hidden group/image">
+
                       <motion.div
                         className="w-full h-full bg-gradient-to-br from-cyan-500/20 via-blue-500/10 to-purple-500/20"
                         whileHover={{ scale: 1.08 }}
                         transition={{ duration: 0.6 }}
                       >
-                        {/* Image with fallback - FIXED: using thumbnail instead of image */}
+
+
                         {currentProject.thumbnail && (
-                          <motion.img
-                            src={currentProject.thumbnail}
-                            alt={currentProject.title}
-                            className="w-full h-full object-cover"
+                          <motion.div
+                      
                             whileHover={{ scale: 1.08 }}
                             transition={{ duration: 0.6 }}
-                          />
+                          >
+                            <Image
+                              src={currentProject.thumbnail}
+                              alt={currentProject.title}
+                              fill  
+
+                              className="object-cover"  
+                              priority={false}  
+                            />
+                          </motion.div>
                         )}
                       </motion.div>
 
-                      {/* Gradient overlay */}
+
                       <motion.div
                         className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"
                         initial={{ opacity: 0.6 }}
@@ -360,7 +353,7 @@ export function FeaturedProjects() {
                         transition={{ duration: 0.3 }}
                       />
 
-                      {/* Shine effect */}
+
                       <motion.div
                         className="absolute inset-0 opacity-0 group-hover/image:opacity-100"
                         style={{
@@ -375,16 +368,16 @@ export function FeaturedProjects() {
                       />
                     </div>
 
-                    {/* Content section */}
+
                     <div className="flex-1 p-8 flex flex-col justify-between">
-                      {/* Top content */}
+
                       <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
                         className="space-y-4"
                       >
-                        {/* Type badge */}
+
                         <div className="flex items-center gap-2">
                           <span className="text-xs font-semibold px-3 py-1 rounded-full bg-linear-to-r from-cyan-500/20 to-blue-500/20 text-cyan-400 border border-cyan-500/30">
                             {currentProject.type}
@@ -405,12 +398,12 @@ export function FeaturedProjects() {
                           {currentProject.title}
                         </h3>
 
-                        {/* Description - FIXED: using description or tagline */}
+
                         <p className="text-gray-300 text-base leading-relaxed">
                           {currentProject.description || currentProject.tagline}
                         </p>
 
-                        {/* Tech stack */}
+
                         <motion.div
                           className="flex flex-wrap gap-2"
                           variants={{
@@ -454,7 +447,6 @@ export function FeaturedProjects() {
                         </motion.div>
                       </motion.div>
 
-                      {/* Links section - FIXED: using links.demo and links.github */}
                       <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -505,9 +497,7 @@ export function FeaturedProjects() {
               </motion.div>
             </AnimatePresence>
 
-            {/* ============================================
-                NAVIGATION ARROWS
-                ============================================ */}
+
 
             <motion.button
               whileHover={{ scale: 1.12, x: -4 }}
@@ -528,9 +518,7 @@ export function FeaturedProjects() {
             </motion.button>
           </div>
 
-          {/* ============================================
-              DOT NAVIGATION
-              ============================================ */}
+
 
           <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-20">
             {featuredProjects.map((_, index) => (
@@ -542,11 +530,10 @@ export function FeaturedProjects() {
                 className="relative p-1"
               >
                 <motion.div
-                  className={`w-3 h-3 rounded-full transition-all ${
-                    index === currentIndex
-                      ? "bg-gradient-to-r from-cyan-400 to-blue-500"
+                  className={`w-3 h-3 rounded-full transition-all ${index === currentIndex
+                      ? "bg-linear-to-r from-cyan-400 to-blue-500"
                       : "bg-gray-500 hover:bg-gray-400"
-                  }`}
+                    }`}
                   animate={index === currentIndex ? { scale: 1 } : { scale: 0.8 }}
                 />
 
@@ -563,7 +550,7 @@ export function FeaturedProjects() {
           </div>
         </div>
 
-       {/*  */}
+        {/*  */}
 
         <motion.div
           initial={{ opacity: 0 }}
@@ -572,15 +559,15 @@ export function FeaturedProjects() {
           transition={{ delay: 0.3 }}
           className="flex justify-center mt-16 md:mt-20"
         >
-                    <Link href="/projects">
-                                    <PremiumButton
-                                        text="More Projects"
-                                        icon="→"
-                                        variant="success"
-                                        size="large"
-                                     
-                                    />
-                                </Link>
+          <Link href="/projects">
+            <PremiumButton
+              text="More Projects"
+              icon="→"
+              variant="success"
+              size="large"
+
+            />
+          </Link>
         </motion.div>
       </div>
     </section>
