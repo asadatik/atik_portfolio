@@ -166,12 +166,12 @@ export function HeroSection() {
                                     transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
                                 />
                                 <span className="text-sm font-medium text-cyan-400">
-                                    {profile.role || "Full Developer"}
+                                    Ful Stack Developer
                                 </span>
                             </motion.div>
                         </motion.div>
 
-                        {/* Main Heading with Typing Animation */}
+                        {/* Main Heading */}
                         <motion.div variants={itemVariants} className="space-y-4">
                             <div className="relative">
                                 <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight">
@@ -199,7 +199,6 @@ export function HeroSection() {
                             </div>
                         </motion.div>
 
-                        {/* Subheading with Typing Animation */}
                         {showSubtext && (
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
@@ -233,7 +232,7 @@ export function HeroSection() {
                             </motion.div>
                         )}
 
-                        {/* CTA Buttons */}
+   
                         {isTypingComplete && (
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
@@ -265,7 +264,6 @@ export function HeroSection() {
                             </motion.div>
                         )}
 
-                        {/* Stats Section */}
                         {isTypingComplete && (
                             <motion.div
                                 initial={{ opacity: 0 }}
@@ -302,7 +300,7 @@ export function HeroSection() {
                         )}
                     </motion.div>
 
-         {/* Photo Container */}
+{/* Right Section */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9, x: 50 }}
                         animate={{ opacity: 1, scale: 1, x: 0 }}
@@ -313,7 +311,7 @@ export function HeroSection() {
                     </motion.div>
                 </div>
             </div>
-{/* Scroll Indicator */}
+{/* Scroll bar */}
             <motion.div
                 className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
                 animate={{ y: [0, 12, 0] }}

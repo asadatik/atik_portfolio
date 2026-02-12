@@ -1,7 +1,7 @@
 "use client"
 
 import { motion, useScroll, useTransform } from "framer-motion"
-import Link from "next/link"
+
 
 import { Button } from "@/components/ui/button"
 import { BentoHighlights } from "@/components/home/bento-highlights"
@@ -29,7 +29,7 @@ export default function HomePage() {
       <FeaturedProjects />
 
       {/* CTA Section */}
-           <CTASection></CTASection>
+      <CTASection></CTASection>
     </div>
   )
 }
