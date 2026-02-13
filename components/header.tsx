@@ -13,7 +13,7 @@ import { LogoAdvanced } from "./logo-advance"
 const navItems = [
   { label: "Home", href: "/" },
   { label: "Skills", href: "/skills" },
-  { label: "Projects", href: "/projects" },
+  { label: "Projects", href: "/projects" }, 
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ]
@@ -110,7 +110,7 @@ export function Header() {
               variants={itemVariants}
               initial="hidden"
               animate="visible"
-              className="hidden md:flex items-center gap-2"
+              className="hidden  md:flex items-center gap-2"
             >
               {navItems.map((item, i) => {
                 const isActive = pathname === item.href
@@ -124,7 +124,7 @@ export function Header() {
                   >
                     <Link
                       href={item.href}
-                      className="relative px-4 py-2 text-sm font-medium transition-colors"
+                      className="relative  px-4 py-2 text-sm font-medium transition-colors"
                     >
                       {/* Background pill on hover */}
                       <motion.div
@@ -145,7 +145,7 @@ export function Header() {
                         {item.label}
                       </motion.span>
 
-                      {/* Active underline with spring animation */}
+                 
                       {isActive && (
                         <motion.div
                           layoutId="activeNav"
@@ -158,7 +158,7 @@ export function Header() {
                         />
                       )}
 
-                      {/* Hover underline animation */}
+               
                       <motion.div
                         initial={{ width: 0 }}
                         whileHover={{

@@ -152,7 +152,7 @@ export function HeroSection() {
                         variants={containerVariants}
                         initial="hidden"
                         animate="visible"
-                        className="space-y-8 md:space-y-10"
+                        className="space-y-4 md:space-y-8"
                     >
 
                         <motion.div variants={itemVariants} className="space-y-3">
@@ -213,7 +213,7 @@ export function HeroSection() {
                             }}
                             className="space-y-1"
                         >
-                            <p className={`text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl ${lora.className}`}>
+                            <p className={`text-base md:text-xl text-gray-400  leading-relaxed max-w-2xl ${lora.className}`}>
                                 {subHeading.split(" ").map((word, index) => (
                                     <motion.span
                                         key={index}

@@ -6,7 +6,7 @@ import { useState, useEffect } from "react"
 import { ArrowRight, ExternalLink, Github, ChevronLeft, ChevronRight, Sparkles } from "lucide-react"
 import Link from "next/link"
 import { projects, type Project } from "@/data/projects"
-import { PremiumButton } from "../premium-button"
+
 import Image from "next/image"
 
 
@@ -101,7 +101,7 @@ export function FeaturedProjects() {
   const currentProject = featuredProjects[currentIndex]
 
   return (
-    <section className="relative py-24 md:py-32 bg-linear-to-b from-slate-950 via-slate-900 to-slate-950 overflow-hidden">
+    <section     className="relative py-24 md:py-32 bg-linear-to-b from-slate-950 via-slate-900 to-slate-950 overflow-hidden">
 
 
       <motion.div
@@ -153,7 +153,7 @@ export function FeaturedProjects() {
         }}
       />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4  relative z-10">
 
 
         <motion.div
@@ -187,9 +187,9 @@ export function FeaturedProjects() {
             A curated selection of my recent work building full-stack applications, SaaS platforms, and interactive web experiences
           </p>
         </motion.div>
-
+{/* main content */}
         <div
-          className="relative max-w-5xl mx-auto"
+          className="relative max-w-7xl mx-auto"
           style={{ perspective: "1200px" }}
           onMouseMove={handleMouseMove}
           onMouseEnter={() => {
@@ -224,8 +224,8 @@ export function FeaturedProjects() {
             ))}
           </div>
 
-          {/*  carousel  */}
-          <div className="relative h-[650px] flex items-center justify-center">
+    {/*  carousel  */}
+          <div className="relative  flex items-center justify-center">
             <AnimatePresence initial={false} custom={direction} mode="wait">
               <motion.div
                 key={currentIndex}
@@ -245,9 +245,9 @@ export function FeaturedProjects() {
                   rotateY: isHovered ? rotateY : 0,
                   transformStyle: "preserve-3d",
                 }}
-                className="w-full max-w-3xl px-4 md:px-0"
+                className="w-full max-w-4xl px-4 md:px-0"
               >
-                {/* Card */}
+     {/* Card */}
                 <motion.div
                   whileHover={{ scale: 1.01 }}
                   transition={{ duration: 0.3 }}
@@ -314,7 +314,7 @@ export function FeaturedProjects() {
                     />
                   </motion.div>
 
-                  <div className="absolute inset-px rounded-2xl bg-gradient-to-br from-cyan-900/95 to-slate-800/90 backdrop-blur-xl pointer-events-none" />
+              <div className="absolute inset-px rounded-2xl bg-gradient-to-br from-cyan-900/95 to-slate-800/90 backdrop-blur-xl pointer-events-none" />
 {/*  */}
                   <div className="relative z-10 h-full flex flex-col">
 
@@ -337,7 +337,7 @@ export function FeaturedProjects() {
                               src={currentProject.thumbnail}
                               alt={currentProject.title}
                               fill  
-
+                         
                               className="object-cover"  
                               priority={false}  
                             />
@@ -399,7 +399,7 @@ export function FeaturedProjects() {
                         </h3>
 
 
-                        <p className="text-gray-300 text-base leading-relaxed">
+                        <p className="hidden md:block text-gray-300 text-base leading-relaxed">
                           {currentProject.description || currentProject.tagline}
                         </p>
 

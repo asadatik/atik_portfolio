@@ -4,10 +4,13 @@ import { FeaturedProjects } from "@/components/home/featured-projects"
 import { CTASection } from "@/components/home/cta-section"
 import { ScrollBackground } from "@/components/ScrollBackground"
 
+
+
 export default function HomePage() {
   return (
     <>
-          <ScrollBackground />
+   
+      <ScrollBackground />
       <HeroSection />
       <BentoHighlights />
       <FeaturedProjects />

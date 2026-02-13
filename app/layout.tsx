@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     description: profile.tagline,
   },
   icons: {
-    icon: "/atik.pic.png", 
+    icon: "/Atik.png", 
     shortcut: "/atik.pic.png",
     apple: "/atik.pic.png", 
   }
@@ -40,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" style={{ scrollBehavior: 'smooth' }}>   
       <body className={`${_geist.className} font-sans antialiased`}>
         <Header />
         <main className="min-h-[80vh] pt-16">{children}</main>

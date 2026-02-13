@@ -739,27 +739,7 @@ export function SkillsShowcase() {
           ))}
         </motion.div>
 
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-          className="text-center mt-20"
-        >
-          <p className="text-gray-400 mb-6">
-            Want to see these skills in action?
-          </p>
-          <Link href="/projects" className="inline-block">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 rounded-full bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600 text-white font-bold shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 transition-all"
-            >
-              View My Projects →
-            </motion.button>
-          </Link>
-        </motion.div>
+      
       </div>
     </section>
   )
