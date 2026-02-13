@@ -18,6 +18,7 @@ import {
  
 } from "lucide-react"
 import Image from "next/image"
+import { LogoAdvanced } from "./logo-advance"
 
 interface FooterLink {
   label: string
@@ -403,35 +404,9 @@ export function Footer() {
             className="col-span-1 md:col-span-2 lg:col-span-1"
           >
             <div className="mb-6">
-                  {/* Logo with premium animation */}
-            <motion.div
-              custom={0}
-              variants={itemVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              <Link href="/" className="flex items-center gap-2 group">
-                <motion.div
-                  whileHover={{
-                    scale: 1.12,
-                    rotate: 8,
-                    boxShadow: "0 0 20px rgba(6, 249, 241, 0.4)",
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 15 }}
-                  className="w-14 h-14 rounded-lg overflow-hidden cursor-pointer relative"
-                >
-                  <Image
-                    src="/Atik.png"
-                    alt="Atik logo"
-                    fill                   // fills parent 40x40 box
-                    className="object-contain"
-                    sizes="40px"
-                  />
-                </motion.div>
-              </Link>
-            </motion.div>
-
+                  {/* Logo */}
+                    <LogoAdvanced variant="neon" size="lg" />
+ 
               <p className="text-sm text-gray-400 leading-relaxed">
                 Full-stack developer crafting beautiful and functional web experiences with modern technologies.
               </p>

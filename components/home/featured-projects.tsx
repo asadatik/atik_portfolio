@@ -552,23 +552,7 @@ export function FeaturedProjects() {
 
         {/*  */}
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-          className="flex justify-center mt-16 md:mt-20"
-        >
-          <Link href="/projects">
-            <PremiumButton
-              text="More Projects"
-              icon="→"
-              variant="success"
-              size="large"
-
-            />
-          </Link>
-        </motion.div>
+      
       </div>
     </section>
   )

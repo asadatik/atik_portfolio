@@ -8,6 +8,7 @@ import { motion, type Variants } from "framer-motion"
 import { profile } from "@/data/profile"
 import { PremiumButton } from "./premium-button"
 import Image from "next/image"
+import { LogoAdvanced } from "./logo-advance"
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -86,7 +87,7 @@ export function Header() {
             : "bg-transparent border-b border-transparent"
           }`}
       >
-        {/* Animated border gradient on scroll */}
+        {/* Animated scroll */}
         {scrolled && (
           <motion.div
             initial={{ width: 0, opacity: 0 }}
@@ -95,37 +96,13 @@ export function Header() {
             className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent"
           />
         )}
-
+      {/* desktop */}
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            {/* Logo with premium animation */}
-            <motion.div
-              custom={0}
-              variants={itemVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              <Link href="/" className="flex items-center gap-2 group">
-                <motion.div
-                  whileHover={{
-                    scale: 1.12,
-                    rotate: 8,
-                    boxShadow: "0 0 20px rgba(6, 249, 241, 0.4)",
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 15 }}
-                  className="w-14 h-14 rounded-lg overflow-hidden cursor-pointer relative"
-                >
-                  <Image
-                    src="/Atik.png"
-                    alt="Atik logo"
-                    fill                   // fills parent 40x40 box
-                    className="object-contain"
-                    sizes="40px"
-                  />
-                </motion.div>
-              </Link>
-            </motion.div>
+       
+           {/* lgo */}
+          <LogoAdvanced variant="box" size="md" />
+
 
             {/* Desktop Navigation */}
             <motion.nav
@@ -196,7 +173,7 @@ export function Header() {
               })}
             </motion.nav>
 
-            {/* Desktop CTA Button */}
+   
             <motion.div
               custom={navItems.length + 1}
               variants={itemVariants}
@@ -255,7 +232,7 @@ export function Header() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile */}
         <motion.div
           initial={{ opacity: 0, height: 0 }}
           animate={{
