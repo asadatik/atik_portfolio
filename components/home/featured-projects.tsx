@@ -8,6 +8,7 @@ import Link from "next/link"
 import { projects, type Project } from "@/data/projects"
 
 import Image from "next/image"
+import { PremiumButton } from "../premium-button"
 
 
 export function FeaturedProjects() {
@@ -101,7 +102,7 @@ export function FeaturedProjects() {
   const currentProject = featuredProjects[currentIndex]
 
   return (
-    <section     className="relative py-24 md:py-32 bg-linear-to-b from-slate-950 via-slate-900 to-slate-950 overflow-hidden">
+    <section className="relative py-24 md:py-32 bg-linear-to-b from-slate-950 via-slate-900 to-slate-950 overflow-hidden">
 
 
       <motion.div
@@ -187,7 +188,7 @@ export function FeaturedProjects() {
             A curated selection of my recent work building full-stack applications, SaaS platforms, and interactive web experiences
           </p>
         </motion.div>
-{/* main content */}
+        {/* main content */}
         <div
           className="relative max-w-7xl mx-auto"
           style={{ perspective: "1200px" }}
@@ -224,7 +225,7 @@ export function FeaturedProjects() {
             ))}
           </div>
 
-    {/*  carousel  */}
+          {/*  carousel  */}
           <div className="relative  flex items-center justify-center">
             <AnimatePresence initial={false} custom={direction} mode="wait">
               <motion.div
@@ -240,25 +241,18 @@ export function FeaturedProjects() {
                   scale: { duration: 0.4 },
                   rotateY: { duration: 0.5 },
                 }}
-                style={{
-                  rotateX: isHovered ? rotateX : 0,
-                  rotateY: isHovered ? rotateY : 0,
-                  transformStyle: "preserve-3d",
-                }}
+
                 className="w-full max-w-4xl px-4 md:px-0"
               >
-     {/* Card */}
+                {/* Card */}
                 <motion.div
-                  whileHover={{ scale: 1.01 }}
-                  transition={{ duration: 0.3 }}
+
                   className="rounded-2xl overflow-hidden relative group h-full"
                 >
 
                   <motion.div
                     className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-purple-500/20 blur-xl -z-10"
-                    animate={{
-                      opacity: isHovered ? [0.6, 0.9, 0.6] : [0.4, 0.6, 0.4],
-                    }}
+
                     transition={{
                       duration: 3,
                       repeat: Number.POSITIVE_INFINITY,
@@ -314,8 +308,8 @@ export function FeaturedProjects() {
                     />
                   </motion.div>
 
-              <div className="absolute inset-px rounded-2xl bg-gradient-to-br from-cyan-900/95 to-slate-800/90 backdrop-blur-xl pointer-events-none" />
-{/*  */}
+                  <div className="absolute inset-px rounded-2xl bg-gradient-to-br from-cyan-900/95 to-slate-800/90 backdrop-blur-xl pointer-events-none" />
+                  {/*  */}
                   <div className="relative z-10 h-full flex flex-col">
 
                     <div className="relative h-96 overflow-hidden group/image">
@@ -329,17 +323,17 @@ export function FeaturedProjects() {
 
                         {currentProject.thumbnail && (
                           <motion.div
-                      
+
                             whileHover={{ scale: 1.08 }}
                             transition={{ duration: 0.6 }}
                           >
                             <Image
                               src={currentProject.thumbnail}
                               alt={currentProject.title}
-                              fill  
-                         
-                              className="object-cover"  
-                              priority={false}  
+                              fill
+
+                              className="object-cover"
+                              priority={false}
                             />
                           </motion.div>
                         )}
@@ -426,7 +420,7 @@ export function FeaturedProjects() {
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ delay: i * 0.05 }}
                                 whileHover={{ scale: 1.1, y: -2 }}
-                                className="text-xs px-3 py-1.5 rounded-full bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-300 border border-cyan-500/30 font-medium"
+                                className="text-xs px-2 py-1.5 rounded-full bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-300 border border-cyan-500/30 font-medium"
                               >
                                 {tech}
                               </motion.span>
@@ -439,7 +433,7 @@ export function FeaturedProjects() {
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ delay: (i + 2) * 0.05 }}
                                 whileHover={{ scale: 1.1, y: -2 }}
-                                className="text-xs px-3 py-1.5 rounded-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-300 border border-purple-500/30 font-medium"
+                                className="text-xs px-2 py-1.5 rounded-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-300 border border-purple-500/30 font-medium"
                               >
                                 {tech}
                               </motion.span>
@@ -453,16 +447,15 @@ export function FeaturedProjects() {
                         transition={{ delay: 0.3 }}
                         className="flex items-center gap-4 pt-6 border-t border-cyan-500/20"
                       >
-                        <Link
-                          href={`/projects/${currentProject.slug}`}
-                          className="text-sm text-cyan-400 flex items-center gap-2 hover:text-cyan-300 transition-colors font-medium group/link"
-                        >
-                          View Case Study
-                          <motion.div whileHover={{ x: 4 }} className="group-hover/link:text-cyan-300">
-                            <ArrowRight className="w-4 h-4" />
-                          </motion.div>
+                       
+                        <Link href={`/projects/${currentProject.slug}`}>
+                          <PremiumButton
+                            text="Details"
+                            icon="→"
+                            variant="success"
+                            size="small"
+                          />
                         </Link>
-
                         {currentProject.links.demo && (
                           <motion.a
                             href={currentProject.links.demo}
@@ -470,10 +463,10 @@ export function FeaturedProjects() {
                             rel="noopener noreferrer"
                             whileHover={{ scale: 1.2, rotate: 5 }}
                             whileTap={{ scale: 0.9 }}
-                            className="text-gray-400 hover:text-cyan-400 transition-colors p-2 rounded-lg hover:bg-cyan-500/10"
+                            className="text-cyan-400 transition-colors p-2 rounded-lg bg-cyan-500/10"
                             title="View Live Demo"
                           >
-                            <ExternalLink className="w-5 h-5" />
+                            <ExternalLink className="w-6 h-6" />
                           </motion.a>
                         )}
 
@@ -484,10 +477,10 @@ export function FeaturedProjects() {
                             rel="noopener noreferrer"
                             whileHover={{ scale: 1.2, rotate: 12 }}
                             whileTap={{ scale: 0.9 }}
-                            className="text-gray-400 hover:text-cyan-400 transition-colors p-2 rounded-lg hover:bg-cyan-500/10"
+                            className=" hover:text-cyan-400 transition-colors p-2 rounded-lg bg-cyan-500/10"
                             title="View GitHub Repository"
                           >
-                            <Github className="w-5 h-5" />
+                            <Github className="w-6 h-6" />
                           </motion.a>
                         )}
                       </motion.div>
@@ -531,8 +524,8 @@ export function FeaturedProjects() {
               >
                 <motion.div
                   className={`w-3 h-3 rounded-full transition-all ${index === currentIndex
-                      ? "bg-linear-to-r from-cyan-400 to-blue-500"
-                      : "bg-gray-500 hover:bg-gray-400"
+                    ? "bg-linear-to-r from-cyan-400 to-blue-500"
+                    : "bg-gray-500 hover:bg-gray-400"
                     }`}
                   animate={index === currentIndex ? { scale: 1 } : { scale: 0.8 }}
                 />
@@ -552,7 +545,7 @@ export function FeaturedProjects() {
 
         {/*  */}
 
-      
+
       </div>
     </section>
   )
