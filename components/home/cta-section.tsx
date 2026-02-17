@@ -353,7 +353,7 @@ export function CTASection() {
               </motion.div>
             </div>
 
-            {/* Subheading with staggered animation */}
+
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -370,7 +370,7 @@ export function CTASection() {
             </motion.p>
           </motion.div>
 
-          {/* Interactive divider */}
+   
           <motion.div
             initial={{ opacity: 0, scaleX: 0 }}
             whileInView={{ opacity: 1, scaleX: 1 }}
@@ -383,7 +383,7 @@ export function CTASection() {
             className="h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent"
           />
 
-          {/* Stats section with interactive cards */}
+     
           <motion.div
             className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4"
             initial={{ opacity: 0 }}

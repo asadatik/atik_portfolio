@@ -1,75 +1,85 @@
-
 "use client"
 
-import { motion, useMotionValue, useTransform, useScroll } from "framer-motion"
+import { motion } from "framer-motion"
 import { useEffect, useRef, useState } from "react"
 import {
-
   Github,
-  Code,
   Zap,
   Layers,
   Database,
   Cloud,
   GitBranch,
-  Cpu,
+  Sparkles,
+  Code,
 } from "lucide-react"
-import { SiReact } from "@icons-pack/react-simple-icons"
-import Link from "next/link"
-
-// ============================================
-// SKILL ICONS & DATA STRUCTURE
-// ============================================
+import { 
+  SiTypescript, 
+  SiTailwindcss, 
+  SiNodedotjs, 
+  SiExpress, 
+  SiPostgresql, 
+  SiMongodb, 
+  SiVercel, 
+  SiDocker,
+  SiReact
+} from "react-icons/si"
 
 interface Skill {
   name: string
   icon: React.ReactNode
-  level: number // 0-100
-  color: string
+  iconColor: string
+  level: number
+  bgColor: string
   category: "frontend" | "backend" | "tools"
 }
 
 const frontendSkills: Skill[] = [
   {
     name: "React",
-    icon: <SiReact className="w-8 h-8" />,
+    icon: <SiReact className="w-12 h-12" />,
+    iconColor: "#06B6D4",
     level: 95,
-    color: "from-cyan-400 to-blue-500",
+    bgColor: "from-cyan-500/30 to-blue-500/20",
     category: "frontend",
   },
   {
     name: "Next.js",
-    icon: <Code className="w-8 h-8" />,
+    icon: <Code className="w-12 h-12" />,
+    iconColor: "#06B6D4",
     level: 93,
-    color: "from-cyan-400 to-blue-500",
+    bgColor: "from-cyan-500/30 to-blue-500/20",
     category: "frontend",
   },
   {
     name: "TypeScript",
-    icon: <Zap className="w-8 h-8" />,
+    icon: <SiTypescript className="w-12 h-12" />,
+    iconColor: "#06B6D4",
     level: 92,
-    color: "from-cyan-400 to-blue-500",
+    bgColor: "from-cyan-500/30 to-blue-500/20",
     category: "frontend",
   },
   {
-    name: "Tailwind CSS",
-    icon: <Layers className="w-8 h-8" />,
+    name: "Tailwind",
+    icon: <SiTailwindcss className="w-12 h-12" />,
+    iconColor: "#06B6D4",
     level: 94,
-    color: "from-cyan-400 to-blue-500",
+    bgColor: "from-cyan-500/30 to-blue-500/20",
     category: "frontend",
   },
   {
-    name: "Framer Motion",
-    icon: <motion.div className="w-8 h-8">✨</motion.div>,
+    name: "Framer",
+    icon: <Sparkles className="w-12 h-12" />,
+    iconColor: "#06B6D4",
     level: 90,
-    color: "from-cyan-400 to-blue-500",
+    bgColor: "from-cyan-500/30 to-blue-500/20",
     category: "frontend",
   },
   {
     name: "HTML/CSS",
-    icon: <Code className="w-8 h-8" />,
+    icon: <Layers className="w-12 h-12" />,
+    iconColor: "#06B6D4",
     level: 96,
-    color: "from-cyan-400 to-blue-500",
+    bgColor: "from-cyan-500/30 to-blue-500/20",
     category: "frontend",
   },
 ]
@@ -77,44 +87,50 @@ const frontendSkills: Skill[] = [
 const backendSkills: Skill[] = [
   {
     name: "Node.js",
-    icon: <Cpu className="w-8 h-8" />,
+    icon: <SiNodedotjs className="w-12 h-12" />,
+    iconColor: "#06B6D4",
     level: 91,
-    color: "from-purple-400 to-pink-500",
+    bgColor: "from-cyan-500/30 to-teal-500/20",
     category: "backend",
   },
   {
-    name: "Express.js",
-    icon: <Code className="w-8 h-8" />,
+    name: "Express",
+    icon: <SiExpress className="w-12 h-12" />,
+    iconColor: "#06B6D4",
     level: 89,
-    color: "from-purple-400 to-pink-500",
+    bgColor: "from-cyan-500/30 to-teal-500/20",
     category: "backend",
   },
   {
     name: "PostgreSQL",
-    icon: <Database className="w-8 h-8" />,
+    icon: <SiPostgresql className="w-12 h-12" />,
+    iconColor: "#06B6D4",
     level: 88,
-    color: "from-purple-400 to-pink-500",
+    bgColor: "from-cyan-500/30 to-teal-500/20",
     category: "backend",
   },
   {
     name: "MongoDB",
-    icon: <Database className="w-8 h-8" />,
+    icon: <SiMongodb className="w-12 h-12" />,
+    iconColor: "#06B6D4",
     level: 87,
-    color: "from-purple-400 to-pink-500",
+    bgColor: "from-cyan-500/30 to-teal-500/20",
     category: "backend",
   },
   {
     name: "REST APIs",
-    icon: <Zap className="w-8 h-8" />,
+    icon: <Zap className="w-12 h-12" />,
+    iconColor: "#06B6D4",
     level: 92,
-    color: "from-purple-400 to-pink-500",
+    bgColor: "from-cyan-500/30 to-teal-500/20",
     category: "backend",
   },
   {
-    name: "Prisma ORM",
-    icon: <Layers className="w-8 h-8" />,
+    name: "Prisma",
+    icon: <Database className="w-12 h-12" />,
+    iconColor: "#06B6D4",
     level: 85,
-    color: "from-purple-400 to-pink-500",
+    bgColor: "from-cyan-500/30 to-teal-500/20",
     category: "backend",
   },
 ]
@@ -122,51 +138,55 @@ const backendSkills: Skill[] = [
 const toolsSkills: Skill[] = [
   {
     name: "Git/GitHub",
-    icon: <Github className="w-8 h-8" />,
+    icon: <Github className="w-12 h-12" />,
+    iconColor: "#06B6D4",
     level: 94,
-    color: "from-blue-400 to-cyan-500",
+    bgColor: "from-cyan-500/30 to-blue-500/20",
     category: "tools",
   },
   {
     name: "Docker",
-    icon: <Cpu className="w-8 h-8" />,
+    icon: <SiDocker className="w-12 h-12" />,
+    iconColor: "#06B6D4",
     level: 82,
-    color: "from-blue-400 to-cyan-500",
+    bgColor: "from-cyan-500/30 to-blue-500/20",
     category: "tools",
   },
   {
     name: "AWS",
-    icon: <Cloud className="w-8 h-8" />,
+    icon: <Cloud className="w-12 h-12" />,
+    iconColor: "#06B6D4",
     level: 80,
-    color: "from-blue-400 to-cyan-500",
+    bgColor: "from-cyan-500/30 to-blue-500/20",
     category: "tools",
   },
   {
     name: "Vercel",
-    icon: <Cloud className="w-8 h-8" />,
+    icon: <SiVercel className="w-12 h-12" />,
+    iconColor: "#06B6D4",
     level: 93,
-    color: "from-blue-400 to-cyan-500",
+    bgColor: "from-cyan-500/30 to-blue-500/20",
     category: "tools",
   },
   {
     name: "CI/CD",
-    icon: <GitBranch className="w-8 h-8" />,
+    icon: <GitBranch className="w-12 h-12" />,
+    iconColor: "#06B6D4",
     level: 86,
-    color: "from-blue-400 to-cyan-500",
+    bgColor: "from-cyan-500/30 to-blue-500/20",
     category: "tools",
   },
   {
     name: "WebSockets",
-    icon: <Zap className="w-8 h-8" />,
+    icon: <Zap className="w-12 h-12" />,
+    iconColor: "#06B6D4",
     level: 84,
-    color: "from-blue-400 to-cyan-500",
+    bgColor: "from-cyan-500/30 to-blue-500/20",
     category: "tools",
   },
 ]
 
-// ============================================
-// ANIMATED MARQUEE COMPONENT (3D MAGNETIC)
-// ============================================
+const allSkills = [...frontendSkills, ...backendSkills, ...toolsSkills]
 
 interface MarqueeProps {
   skills: Skill[]
@@ -178,419 +198,202 @@ interface MarqueeProps {
 
 function SkillMarquee({ skills, direction, duration, label, color }: MarqueeProps) {
   const [isHovered, setIsHovered] = useState(false)
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
   const containerRef = useRef<HTMLDivElement>(null)
-  const mouseX = useMotionValue(0)
-  const mouseY = useMotionValue(0)
-
-  // Mouse tracking for magnetic effect
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!containerRef.current) return
-
-    const rect = containerRef.current.getBoundingClientRect()
-    const x = e.clientX - rect.left
-    const y = e.clientY - rect.top
-
-    setMousePos({ x, y })
-    mouseX.set(x)
-    mouseY.set(y)
-  }
 
   const duplicatedSkills = [...skills, ...skills, ...skills]
-  const x = useMotionValue(0)
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.8 }}
-      className="space-y-4 mb-12"
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="space-y-8 mb-10"
     >
-      {/* Label */}
       <motion.div
-        initial={{ opacity: 0, x: -30 }}
+        initial={{ opacity: 0, x: -40 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="flex items-center gap-3"
+        transition={{ duration: 0.6, delay: 0.1 }}
+        className="flex items-center gap-4"
       >
-        <div className={`w-1 h-8 rounded-full bg-gradient-to-b ${color}`} />
-        <h3 className="text-xl font-bold text-white uppercase tracking-widest">{label}</h3>
+        <motion.div
+          animate={{ scaleY: [1, 1.3, 1], opacity: [0.6, 1, 0.6] }}
+          transition={{ duration: 2.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+          className={`w-1.5 h-12 rounded-full bg-gradient-to-b from-cyan-400 via-cyan-300 to-cyan-500 shadow-lg shadow-cyan-400/50`}
+        />
+        <h3 className="text-2xl md:text-3xl font-black text-transparent bg-gradient-to-r from-cyan-300 to-cyan-400 bg-clip-text uppercase tracking-widest">
+          {label}
+        </h3>
+        <motion.div
+          animate={{ opacity: [0.3, 0.7, 0.3] }}
+          transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+          className="hidden md:flex gap-2 ml-auto"
+        >
+          {[...Array(3)].map((_, i) => (
+            <div
+              key={i}
+              className="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-400/50"
+            />
+          ))}
+        </motion.div>
       </motion.div>
 
-      {/* Marquee container */}
-      <motion.div
-        ref={containerRef}
-        onMouseMove={handleMouseMove}
+      <div 
+        className="relative overflow-hidden rounded-3xl border border-cyan-500/40 bg-gradient-to-br from-slate-950/60 via-slate-900/40 to-slate-950/60 backdrop-blur-2xl p-8 shadow-2xl transition-all duration-500 hover:border-cyan-400/60"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className="relative group overflow-hidden rounded-2xl border border-cyan-500/20 bg-gradient-to-r from-slate-900/50 via-slate-800/50 to-slate-900/50 backdrop-blur-xl p-4"
       >
-        {/* Glow background */}
+        {/* Animated gradient overlay */}
         <motion.div
-          className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100"
+          className="absolute inset-0 rounded-3xl opacity-0"
           animate={{
-            background: isHovered
-              ? "radial-gradient(circle at 50% 50%, rgba(6, 249, 241, 0.1), transparent 70%)"
-              : "transparent",
+            opacity: isHovered ? 0.15 : 0,
+            background: isHovered 
+              ? "radial-gradient(circle, rgba(6, 182, 212, 0.3), transparent)" 
+              : "radial-gradient(circle, rgba(6, 182, 212, 0), transparent)"
           }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.4 }}
         />
 
-        {/* Animated marquee */}
+        {/* Edge glow effect */}
+        {isHovered && (
+          <motion.div
+            className="absolute inset-0 rounded-3xl pointer-events-none"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <div className="absolute inset-0 rounded-3xl border border-cyan-500/30 shadow-inset shadow-cyan-500/20" />
+          </motion.div>
+        )}
+
         <motion.div
-          className="flex gap-6 relative z-10"
+          className="flex gap-8 relative z-10"
           animate={{
-            x: direction === "left" ? [-1000, 0] : [0, -1000],
+            x: direction === "left" 
+              ? [0, -(duplicatedSkills.length * 120)] 
+              : [-(duplicatedSkills.length * 120), 0]
           }}
           transition={{
-            duration: isHovered ? duration * 1.5 : duration,
+            duration: isHovered ? duration * 2 : duration,
             repeat: Number.POSITIVE_INFINITY,
-            ease: "linear",
-            repeatType: "loop",
+            ease: "linear"
           }}
         >
           {duplicatedSkills.map((skill, idx) => (
             <motion.div
               key={`${skill.name}-${idx}`}
-              whileHover={{
-                scale: 1.3,
-                rotateY: 360,
-                z: 100,
+              className="flex-shrink-0 w-48 flex flex-col items-center justify-center py-6 h-[240px]"
+              whileHover={{ 
+                scale: 1.08, 
+                y: -12,
+                transition: { duration: 0.4, type: "spring", stiffness: 300 }
               }}
-              transition={{
-                duration: 0.6,
-              }}
-              className="flex-shrink-0 relative group/icon"
             >
-              {/* Skill icon container */}
-              <motion.div
-                className={`w-20 h-20 rounded-xl flex items-center justify-center bg-gradient-to-br ${skill.color} border border-white/10 text-white cursor-pointer relative`}
-                animate={{
-                  y: isHovered ? -5 : 0,
-                }}
-                transition={{
-                  duration: 0.3,
+              <motion.div 
+                className="relative w-32 h-32 rounded-2xl flex items-center justify-center bg-gradient-to-br from-cyan-500/20 to-blue-500/10 border-2 border-cyan-400/40 shadow-2xl mb-4 overflow-hidden group hover:border-cyan-300/70 transition-all duration-300"
+                whileHover={{
+                  boxShadow: "0 0 30px rgba(6, 182, 212, 0.6), inset 0 0 20px rgba(6, 182, 212, 0.2)"
                 }}
               >
-                {/* Glow effect */}
-                <motion.div
-                  className="absolute inset-0 rounded-xl opacity-0 group-hover/icon:opacity-100"
-                  animate={{
-                    boxShadow: isHovered
-                      ? `0 0 30px ${skill.color === "from-cyan-400 to-blue-500" ? "rgba(6, 249, 241, 0.6)" : skill.color === "from-purple-400 to-pink-500" ? "rgba(168, 85, 247, 0.6)" : "rgba(59, 130, 246, 0.6)"}`
-                      : "0 0 0px transparent",
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
+                <motion.div 
+                  className="p-4 relative z-10 text-cyan-300"
+                  animate={{ 
+                    rotateY: [0, 360]
                   }}
-                  transition={{ duration: 0.3 }}
-                />
-
-                {/* Icon */}
-                <motion.div
-                  className="relative z-10 text-2xl"
-                  animate={{
-                    scale: isHovered ? 1.2 : 1,
-                    rotate: isHovered ? 360 : 0,
+                  whileHover={{
+                    scale: 1.15,
+                    textShadow: "0 0 20px rgba(6, 182, 212, 0.8)"
                   }}
-                  transition={{
-                    scale: { duration: 0.3 },
-                    rotate: { duration: 0.8 },
-                  }}
+                  transition={{ duration: 6, repeat: Number.POSITIVE_INFINITY }}
                 >
                   {skill.icon}
                 </motion.div>
 
-                {/* Particle burst on hover */}
-                {isHovered && (
-                  <>
-                    {Array.from({ length: 6 }).map((_, i) => (
-                      <motion.div
-                        key={i}
-                        className="absolute w-1 h-1 rounded-full bg-cyan-400"
-                        initial={{
-                          x: 0,
-                          y: 0,
-                          opacity: 1,
-                        }}
-                        animate={{
-                          x: Math.cos((i / 6) * Math.PI * 2) * 40,
-                          y: Math.sin((i / 6) * Math.PI * 2) * 40,
-                          opacity: 0,
-                        }}
-                        transition={{
-                          duration: 0.6,
-                          ease: "easeOut",
-                        }}
-                      />
-                    ))}
-                  </>
-                )}
+                <motion.div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100"
+                  animate={{
+                    background: "radial-gradient(circle at center, rgba(6, 182, 212, 0.4), transparent)"
+                  }}
+                  transition={{ duration: 0.3 }}
+                />
               </motion.div>
-
-              {/* Tooltip */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                whileHover={{ opacity: 1, y: 0 }}
-                className="absolute -bottom-12 left-1/2 -translate-x-1/2 whitespace-nowrap z-50"
+              
+              <motion.div 
+                className="text-center space-y-2 w-full px-2"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.1 }}
               >
-                <div className="px-3 py-1.5 rounded-lg bg-slate-900/95 border border-cyan-500/50 text-xs font-semibold text-cyan-300 backdrop-blur-xl">
+                <motion.div 
+                  className="text-sm font-bold text-cyan-100 px-3 py-2 bg-gradient-to-r from-cyan-500/20 to-blue-500/10 backdrop-blur-md border border-cyan-400/30 rounded-lg hover:border-cyan-300/60 transition-all duration-300 shadow-lg hover:shadow-cyan-500/30"
+                  whileHover={{ 
+                    backgroundColor: "rgba(6, 182, 212, 0.15)",
+                    borderColor: "rgba(6, 182, 212, 0.6)"
+                  }}
+                >
                   {skill.name}
-                  <span className="text-gray-400 ml-2">{skill.level}%</span>
-                </div>
+                </motion.div>
+                <motion.div 
+                  className="text-xs font-black text-cyan-300 font-mono tracking-widest drop-shadow-lg"
+                  animate={{ 
+                    scale: [1, 1.1, 1],
+                    opacity: [0.8, 1, 0.8]
+                  }}
+                  transition={{ duration: 2.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                >
+                  {skill.level}%
+                </motion.div>
               </motion.div>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* Gradient fade edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-slate-950 to-transparent pointer-events-none z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-slate-950 to-transparent pointer-events-none z-10" />
-      </motion.div>
-    </motion.div>
-  )
-}
-
-// ============================================
-// SKILL CARD COMPONENT (3D GLASS)
-// ============================================
-
-interface SkillCardProps {
-  skill: Skill
-  index: number
-}
-
-function SkillCard({ skill, index }: SkillCardProps) {
-  const [isHovered, setIsHovered] = useState(false)
-  const [rotateX, setRotateX] = useState(0)
-  const [rotateY, setRotateY] = useState(0)
-  const cardRef = useRef<HTMLDivElement>(null)
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return
-
-    const rect = cardRef.current.getBoundingClientRect()
-    const x = e.clientX - rect.left - rect.width / 2
-    const y = e.clientY - rect.top - rect.height / 2
-
-    setRotateX(-(y / rect.height) * 15)
-    setRotateY((x / rect.width) * 15)
-  }
-
-  const handleMouseLeave = () => {
-    setRotateX(0)
-    setRotateY(0)
-  }
-
-  return (
-    <motion.div
-      ref={cardRef}
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{
-        duration: 0.6,
-        delay: index * 0.1,
-        ease: "easeOut",
-      }}
-      whileHover={{ y: -10, scale: 1.02 }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
-      style={{
-        rotateX: isHovered ? rotateX : 0,
-        rotateY: isHovered ? rotateY : 0,
-        transformStyle: "preserve-3d",
-      }}
-      className="group relative h-full"
-    >
-      {/* 3D Background blur */}
-      <motion.div
-        className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-purple-500/20 blur-xl -z-10"
-        animate={{
-          opacity: isHovered ? [0.6, 0.9, 0.6] : [0.3, 0.5, 0.3],
-          scale: isHovered ? [1, 1.1, 1] : [1, 1.05, 1],
-        }}
-        transition={{
-          duration: 3,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "easeInOut",
-        }}
-      />
-
-      {/* Card border with rotation */}
-      <motion.div
-        className="absolute inset-0 rounded-2xl p-px pointer-events-none"
-        animate={{
-          opacity: isHovered ? [0.8, 1, 0.8] : [0.4, 0.6, 0.4],
-        }}
-        transition={{
-          duration: 3,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "easeInOut",
-        }}
-      >
-        <motion.div
-          className="absolute inset-0 rounded-2xl"
-          animate={{
-            rotate: [0, 360],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "linear",
-          }}
-          style={{
-            background: `conic-gradient(from 0deg, rgba(6, 249, 241, 0.6), rgba(59, 130, 246, 0.6), rgba(168, 85, 247, 0.4), rgba(6, 249, 241, 0.6))`,
-          }}
-        />
-      </motion.div>
-
-      {/* Inner card */}
-      <div className="absolute inset-px rounded-2xl bg-gradient-to-br from-slate-900/95 to-slate-800/90 backdrop-blur-xl border border-white/5" />
-
-      {/* Content */}
-      <div className="relative z-10 p-6 h-full flex flex-col justify-between">
-        {/* Icon & Name */}
-        <div className="space-y-4">
-          <motion.div
-            className={`inline-flex p-3 rounded-lg bg-gradient-to-br ${skill.color} text-white`}
-            animate={{
-              scale: isHovered ? 1.2 : 1,
-              rotate: isHovered ? 360 : 0,
-            }}
-            transition={{
-              scale: { duration: 0.3 },
-              rotate: { duration: 0.8 },
-            }}
-          >
-            <div className="text-2xl">{skill.icon}</div>
-          </motion.div>
-
-          <h3 className="text-lg font-bold text-white">{skill.name}</h3>
-        </div>
-
-        {/* Skill Level Progress Ring */}
-        <motion.div className="space-y-3">
-          <div className="flex items-center justify-between">
-            <span className="text-xs text-gray-400 uppercase tracking-wider">Proficiency</span>
-            <motion.span
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{
-                delay: index * 0.1 + 0.4,
-              }}
-              className="text-sm font-bold text-cyan-400"
-            >
-              {skill.level}%
-            </motion.span>
-          </div>
-
-          {/* Progress bar */}
-          <motion.div className="h-1.5 bg-slate-700 rounded-full overflow-hidden">
-            <motion.div
-              className={`h-full bg-gradient-to-r ${skill.color}`}
-              initial={{ width: 0 }}
-              whileInView={{ width: `${skill.level}%` }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 1.2,
-                delay: index * 0.1 + 0.2,
-                ease: "easeOut",
-              }}
-            />
-          </motion.div>
-        </motion.div>
-
-        {/* Circular progress ring */}
-        <motion.svg
-          className="w-16 h-16 mx-auto mt-4"
-          viewBox="0 0 60 60"
-          animate={{
-            rotate: isHovered ? 360 : 0,
-          }}
-          transition={{
-            duration: 2,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "linear",
-          }}
-        >
-          {/* Background circle */}
-          <circle
-            cx="30"
-            cy="30"
-            r="25"
-            fill="none"
-            stroke="rgba(100, 116, 139, 0.3)"
-            strokeWidth="2"
-          />
-
-          {/* Progress circle */}
-          <motion.circle
-            cx="30"
-            cy="30"
-            r="25"
-            fill="none"
-            strokeWidth="2"
-            strokeDasharray={`${2 * Math.PI * 25}`}
-            strokeDashoffset={`${2 * Math.PI * 25 * (1 - skill.level / 100)}`}
-            stroke="url(#progress-gradient)"
-            strokeLinecap="round"
-            initial={{ strokeDashoffset: 2 * Math.PI * 25 }}
-            whileInView={{
-              strokeDashoffset: 2 * Math.PI * 25 * (1 - skill.level / 100),
-            }}
-            viewport={{ once: true }}
-            transition={{
-              duration: 1.5,
-              delay: index * 0.1 + 0.3,
-              ease: "easeOut",
-            }}
-          />
-
-          <defs>
-            <linearGradient id="progress-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#06f9f1" />
-              <stop offset="50%" stopColor="#3b82f6" />
-              <stop offset="100%" stopColor="#a855f7" />
-            </linearGradient>
-          </defs>
-        </motion.svg>
+        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-slate-950/100 to-slate-950/0 pointer-events-none z-20" />
+        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-slate-950/100 to-slate-950/0 pointer-events-none z-20" />
       </div>
     </motion.div>
   )
 }
 
-// ============================================
-// FLOATING PARTICLES BACKGROUND
-// ============================================
-
 function FloatingParticles() {
-  const particles = Array.from({ length: 20 }, (_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 3 + 1,
-    duration: Math.random() * 4 + 6,
-    delay: Math.random() * 2,
-  }))
+  const [particles, setParticles] = useState<any[]>([])
+
+  useEffect(() => {
+    const newParticles = Array.from({ length: 40 }, (_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      size: Math.random() * 3 + 1,
+      duration: Math.random() * 6 + 10,
+      delay: Math.random() * 2,
+      blur: Math.random() * 4 + 2,
+    }))
+    setParticles(newParticles)
+  }, [])
+
+  if (particles.length === 0) return null
 
   return (
     <>
       {particles.map((particle) => (
         <motion.div
           key={particle.id}
-          className="absolute pointer-events-none"
+          className="absolute pointer-events-none rounded-full"
           style={{
             left: `${particle.x}%`,
             top: `${particle.y}%`,
             width: particle.size,
             height: particle.size,
           }}
+          initial={{ opacity: 0, scale: 0 }}
           animate={{
-            y: [0, -150, -300],
-            opacity: [0, 0.8, 0],
-            scale: [0, 1, 0.5],
+            y: [-100, -500],
+            opacity: [0, 1, 0],
+            scale: [0, 1.5, 0],
           }}
           transition={{
             duration: particle.duration,
@@ -599,153 +402,233 @@ function FloatingParticles() {
             ease: "easeOut",
           }}
         >
-          <div className="w-full h-full rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 blur-sm" />
+          <div className="w-full h-full bg-gradient-to-br from-cyan-400/80 via-cyan-300/50 to-blue-400/30 blur-sm shadow-lg shadow-cyan-400/60" />
         </motion.div>
       ))}
     </>
   )
 }
 
-// ============================================
-// MAIN SKILLS SHOWCASE COMPONENT
-// ============================================
+function SkillIconsFooter() {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8, delay: 0.2 }}
+      className="mt-32 pt-20 border-t border-cyan-500/20"
+    >
+      <motion.h4
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        className="text-center text-sm font-bold text-cyan-300/80 uppercase tracking-widest mb-14"
+      >
+        Technology Stack & Expertise
+      </motion.h4>
+      
+      <motion.div
+        className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 max-w-5xl mx-auto"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.2 }}
+      >
+        {allSkills.map((skill, index) => (
+          <motion.div
+            key={skill.name}
+            initial={{ opacity: 0, y: 30, scale: 0.7 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            whileHover={{ 
+              y: -12, 
+              scale: 1.2,
+              transition: { duration: 0.3, type: "spring", stiffness: 400 }
+            }}
+            viewport={{ once: true }}
+            transition={{ 
+              duration: 0.5, 
+              delay: index * 0.03,
+              type: "spring",
+              stiffness: 200
+            }}
+            className="group flex flex-col items-center gap-3 p-4 cursor-pointer hover:bg-cyan-500/10 rounded-2xl transition-all duration-300 border border-transparent hover:border-cyan-400/40"
+          >
+            <motion.div
+              className="relative w-20 h-20 flex items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500/30 to-blue-500/10 border-2 border-cyan-400/30 group-hover:border-cyan-300/70 backdrop-blur-sm shadow-lg group-hover:shadow-cyan-500/50 transition-all duration-300"
+              whileHover={{ 
+                rotate: [0, 360],
+                boxShadow: "0 0 25px rgba(6, 182, 212, 0.7), inset 0 0 15px rgba(6, 182, 212, 0.2)"
+              }}
+              transition={{ duration: 0.7 }}
+            >
+              <motion.div 
+                style={{ color: skill.iconColor }} 
+                className="text-3xl drop-shadow-lg"
+                whileHover={{ scale: 1.2 }}
+              >
+                {skill.icon}
+              </motion.div>
+              <motion.div
+                className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100"
+                animate={{
+                  background: "radial-gradient(circle at center, rgba(6, 182, 212, 0.3), transparent)"
+                }}
+                transition={{ duration: 0.3 }}
+              />
+            </motion.div>
+            <motion.span 
+              className="text-xs font-bold text-cyan-100/90 text-center leading-tight tracking-wide drop-shadow-md"
+              whileHover={{ color: "#06D4E4" }}
+            >
+              {skill.name}
+            </motion.span>
+          </motion.div>
+        ))}
+      </motion.div>
+    </motion.div>
+  )
+}
+
+function AnimatedBackground() {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* Primary cyan glow */}
+      <motion.div
+        className="absolute top-0 right-1/3 w-[800px] h-[800px] rounded-full bg-gradient-to-br from-cyan-500/25 to-blue-500/10 blur-3xl"
+        animate={{
+          scale: [1, 1.5, 1],
+          opacity: [0.4, 0.7, 0.4],
+          x: [0, 150, 0],
+          y: [0, 100, 0],
+        }}
+        transition={{ duration: 15, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+      />
+      
+      {/* Secondary teal glow */}
+      <motion.div
+        className="absolute bottom-1/4 -left-40 w-[700px] h-[700px] rounded-full bg-gradient-to-tr from-cyan-500/20 to-teal-500/10 blur-3xl"
+        animate={{
+          scale: [1, 1.4, 1],
+          opacity: [0.3, 0.6, 0.3],
+          y: [0, -150, 0],
+          x: [0, -100, 0],
+        }}
+        transition={{ duration: 16, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 1 }}
+      />
+
+      {/* Accent glow */}
+      <motion.div
+        className="absolute top-1/2 right-1/4 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-cyan-400/15 to-blue-600/5 blur-3xl"
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.2, 0.5, 0.2],
+          x: [0, 100, 0],
+        }}
+        transition={{ duration: 18, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 2 }}
+      />
+    </div>
+  )
+}
 
 export function SkillsShowcase() {
   return (
-    <section className="relative py-24 md:py-32 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 overflow-hidden" id="skills">
-      {/* Background elements */}
-      <motion.div
-        className="absolute top-0 right-0 w-96 h-96 rounded-full bg-gradient-to-br from-cyan-500/15 to-blue-500/10 blur-3xl"
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.4, 0.6, 0.4],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "easeInOut",
-        }}
-      />
-
-      <motion.div
-        className="absolute bottom-1/3 left-0 w-96 h-96 rounded-full bg-gradient-to-tr from-purple-500/15 to-cyan-500/10 blur-3xl"
-        animate={{
-          scale: [1, 1.15, 1],
-          opacity: [0.3, 0.5, 0.3],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "easeInOut",
-          delay: 1,
-        }}
-      />
-
-      {/* Grid background */}
-      <div className="absolute inset-0 opacity-5">
-        <div
-          className="w-full h-full"
-          style={{
-            backgroundImage: `
-              linear-gradient(0deg, transparent 24%, rgba(6, 249, 241, 0.05) 25%, rgba(6, 249, 241, 0.05) 26%, transparent 27%, transparent 74%, rgba(6, 249, 241, 0.05) 75%, rgba(6, 249, 241, 0.05) 76%, transparent 77%, transparent),
-              linear-gradient(90deg, transparent 24%, rgba(6, 249, 241, 0.05) 25%, rgba(6, 249, 241, 0.05) 26%, transparent 27%, transparent 74%, rgba(6, 249, 241, 0.05) 75%, rgba(6, 249, 241, 0.05) 76%, transparent 77%, transparent)
-            `,
-            backgroundSize: "50px 50px",
-          }}
-        />
-      </div>
-
+    <section className="relative py-10 md:py-20 bg-gradient-to-b from-slate-950 via-slate-900/50 to-slate-950 overflow-hidden" id="skills">
+      <AnimatedBackground />
       <FloatingParticles />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-7xl">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 80 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-center mb-16"
         >
-          <motion.span
-            initial={{ opacity: 0, scale: 0.9 }}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.7 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 mb-6 cursor-default"
+            transition={{ duration: 0.8, delay: 0.1, type: "spring", stiffness: 200 }}
+            className="inline-flex items-center gap-4 px-8 py-4 rounded-full border-2 border-cyan-400/40 bg-gradient-to-r from-cyan-500/15 via-blue-500/10 to-cyan-500/15 mb-12 backdrop-blur-xl shadow-2xl hover:border-cyan-300/70 transition-all duration-300"
           >
             <motion.div
-              animate={{ rotate: [0, 360] }}
-              transition={{
-                duration: 3,
-                repeat: Number.POSITIVE_INFINITY,
-                ease: "linear",
-              }}
+              animate={{ rotate: 360, scale: [1, 1.2, 1] }}
+              transition={{ duration: 3.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+              className="drop-shadow-lg"
             >
-              <Zap className="w-4 h-4 text-cyan-400" />
+              <Sparkles className="w-7 h-7 text-cyan-300 stroke-2" />
             </motion.div>
-            <span className="text-sm font-bold text-cyan-400 uppercase tracking-widest">
-              Tech Stack
+            <span className="text-base md:text-lg font-black text-cyan-300 uppercase tracking-widest">
+              Professional Expertise
             </span>
-          </motion.span>
+          </motion.div>
 
-          <h2 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
+          <motion.h2 
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="text-6xl md:text-7xl lg:text-8xl font-black text-white mb-10 leading-[0.9] tracking-tight"
+          >
             Skills &{" "}
-            <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <motion.span 
+              className="bg-gradient-to-r from-cyan-300 via-cyan-400 to-blue-400 bg-clip-text text-transparent drop-shadow-2xl"
+              animate={{ 
+                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+              }}
+              transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+              style={{ backgroundSize: "200% 200%" }}
+            >
               Expertise
-            </span>
-          </h2>
+            </motion.span>
+          </motion.h2>
 
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            Mastered technologies and tools that power modern web development
-          </p>
+          <motion.p 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+            className="text-lg md:text-2xl text-cyan-100/70 max-w-4xl mx-auto leading-relaxed font-light"
+          >
+            Mastered cutting-edge technologies and modern development practices, crafting world-class digital experiences with precision and innovation
+          </motion.p>
         </motion.div>
 
-        {/* Marquees */}
-        <div className="space-y-8 mb-20">
+        <div className="space-y-32">
           <SkillMarquee
             skills={frontendSkills}
             direction="left"
-            duration={35}
+            duration={40}
             label="Frontend Arsenal"
             color="from-cyan-400 to-blue-500"
           />
-
           <SkillMarquee
             skills={backendSkills}
             direction="right"
-            duration={40}
+            duration={45}
             label="Backend Mastery"
-            color="from-purple-400 to-pink-500"
+            color="from-cyan-400 to-teal-500"
           />
-
           <SkillMarquee
             skills={toolsSkills}
             direction="left"
-            duration={30}
+            duration={42}
             label="Tools & Infrastructure"
             color="from-blue-400 to-cyan-500"
           />
         </div>
 
-        {/* Skills Grid Cards */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ staggerChildren: 0.05, delayChildren: 0.2 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          {[...frontendSkills, ...backendSkills, ...toolsSkills].map((skill, idx) => (
-            <SkillCard key={`${skill.name}-${idx}`} skill={skill} index={idx} />
-          ))}
-        </motion.div>
-
-      
+        {/* Skill Icons Footer */}
+        <SkillIconsFooter />
       </div>
     </section>
   )
 }
 
 
+
+// MAIN PAGE COMPONENT
 export default function SkillsPage() {
   return <SkillsShowcase />
 }
