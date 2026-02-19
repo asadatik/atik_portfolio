@@ -1,13 +1,14 @@
 // components/home/bento-highlights.tsx
 "use client"
 
-import { motion  , type Variants} from "framer-motion"
+import { motion, type Variants } from "framer-motion"
 import { Code2, Zap, Briefcase, Sparkles, ArrowRight, TrendingUp } from "lucide-react"
 import Link from "next/link"
 import { profile } from "@/data/profile"
 import { projects } from "@/data/projects"
 import { skills } from "@/data/skills"
 import { PremiumButton } from "@/components/premium-button"
+import { SectionHeading } from "../SectionHeading"
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -38,7 +39,7 @@ export function BentoHighlights() {
 
   return (
     <section className="relative py-24 md:py-32 bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900 overflow-hidden">
-  
+
       {/* Top right glow */}
       <motion.div
         className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-gradient-to-br from-cyan-500/10 to-blue-500/5 blur-3xl"
@@ -83,7 +84,7 @@ export function BentoHighlights() {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
- {/* HEADING */}
+        {/* Main Head */}
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -107,18 +108,24 @@ export function BentoHighlights() {
             </motion.div>
             <span className="text-sm font-medium text-cyan-400">Highlights</span>
           </motion.span>
+          {/* Heading */}
+          <SectionHeading
+            title="Strengths &"
+            highlight="Expertise"
+          
+          />
 
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
-            What I <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">Bring</span> to the Table
-          </h2>
 
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
-            A comprehensive overview of my core expertise, experience, and what I'm currently focused on building
+          <p className="text-lg text-gray-400 max-w-6xl mx-auto leading-relaxed">
+         A strategic overview of the technologies I leverage, the systems 
+         I architect, and the scalable solutions I deliver — combining modern 
+         frontend precision with robust backend engineering to build 
+         high-performance digital products ready for real-world demands.
           </p>
         </motion.div>
 
-       
-{/* CARDS */}
+
+        {/* CARDS */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -126,7 +133,7 @@ export function BentoHighlights() {
           viewport={{ once: true, margin: "-100px" }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6"
         >
-       
+
           <motion.div
             variants={itemVariants}
             whileHover={{ y: -8, scale: 1.01 }}
@@ -179,7 +186,7 @@ export function BentoHighlights() {
 
                 {/* Description */}
                 <p className="text-gray-300 leading-relaxed">
-                  Specialized in building scalable, production-ready applications with Next.js, TypeScript, Node.js, RESTful APIs, 
+                  Specialized in building scalable, production-ready applications with Next.js, TypeScript, Node.js, RESTful APIs,
                   database design, authentication systems, payment integration, and interactive dashboards.
                 </p>
 
@@ -393,7 +400,7 @@ export function BentoHighlights() {
             </Link>
           </motion.div>
 
-      
+
 
           <motion.div
             variants={itemVariants}
@@ -449,7 +456,7 @@ export function BentoHighlights() {
 
                 {/* Description */}
                 <p className="text-gray-300 leading-relaxed">
-                  Building cutting-edge web applications with modern architecture, focusing on performance optimization, 
+                  Building cutting-edge web applications with modern architecture, focusing on performance optimization,
                   user experience, and scalable backend infrastructure.
                 </p>
 
