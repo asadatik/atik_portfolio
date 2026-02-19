@@ -237,6 +237,9 @@ function StatCard({ number, label, icon, delay }: StatCardProps) {
   )
 }
 
+
+
+// Main Section component
 export function CTASection() {
   const [scrollY, setScrollY] = useState(0)
   const [isInView, setIsInView] = useState(false)
@@ -269,12 +272,12 @@ export function CTASection() {
       </motion.div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Main content */}
+  {/* Main content */}
         <motion.div
           onViewportEnter={() => setIsInView(true)}
           className="max-w-5xl mx-auto space-y-12 "
         >
-          {/* Top accent badge */}
+     
           <motion.div
             initial={{ opacity: 0, y: 20, scale: 0.9 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -302,7 +305,7 @@ export function CTASection() {
             </motion.span>
           </motion.div>
 
-          {/* Main heading with ramp-up animation */}
+ {/*heading with ramp-up animation */}
           <motion.div className="space-y-6">
             <div className="text-5xl md:text-7xl  font-bold leading-tight text-center">
               <motion.div
@@ -317,7 +320,7 @@ export function CTASection() {
                 />
               </motion.div>
 
-              {/* Main gradient text with blur effect */}
+ {/* text with blur effect */}
               <motion.div
                 initial={{ opacity: 0, filter: "blur(10px)" }}
                 whileInView={{ opacity: 1, filter: "blur(0px)" }}
@@ -329,11 +332,11 @@ export function CTASection() {
                 }}
                 className="relative inline-block mt-3 md:mt-4"
               >
-                <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-cyan-400  to-blue-400 bg-clip-text text-transparent">
                   Extraordinary?
                 </span>
 
-                {/* Animated background glow */}
+  {/* Animated background glow */}
                 <motion.div
                   className="absolute inset-0 -z-10"
                   animate={{

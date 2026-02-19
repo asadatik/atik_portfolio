@@ -124,7 +124,7 @@ export function Header() {
                   >
                     <Link
                       href={item.href}
-                      className="relative  px-4 py-2 text-sm font-medium transition-colors"
+                      className="relative  px-4 py-2 text-md font-medium transition-colors"
                     >
                       {/* Background pill on hover */}
                       <motion.div

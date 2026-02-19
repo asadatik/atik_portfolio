@@ -1,32 +1,20 @@
 // components/footer.tsx
 "use client"
 
-import { motion , type Variants } from "framer-motion"
+import { motion, type Variants } from "framer-motion"
 import Link from "next/link"
 import { useState } from "react"
-import {
-  Github,
-  Linkedin,
+import {Github,Linkedin,Mail, ExternalLink, ArrowRight , Heart, Code2, Zap, Facebook ,ArrowUp,ArrowBigUp,} from "lucide-react"
 
-  Mail,
-  ExternalLink,
-  ArrowRight,
-  Heart,
-  Code2,
-  Zap,
-  Facebook,
-  
-  ArrowUp,
-  ArrowBigUp,
- 
-} from "lucide-react"
-import Image from "next/image"
 import { LogoAdvanced } from "./logo-advance"
+import { SectionHeading } from "./SectionHeading"
 
 interface FooterLink {
   label: string
   href: string
   icon?: React.ReactNode
+  bg?: string
+  text?: string
 }
 
 interface FooterSection {
@@ -51,7 +39,7 @@ const footerSections: FooterSection[] = [
       { label: "GitHub", href: "https://github.com/asadatik" },
       { label: "LinkedIn", href: "https://linkedin.com/in/asadujjaman-atik" },
       { label: "Facebook", href: "https://facebook.com/codewithatik" },
-  
+
     ],
   },
   {
@@ -64,31 +52,102 @@ const footerSections: FooterSection[] = [
   },
 ]
 
+
 const socialLinks: FooterLink[] = [
   {
     label: "GitHub",
     href: "https://github.com/asadatik",
-    icon: <Github className="w-5 h-5" />,
+    icon: <Github className="w-8 h-8 md:w-10 md:h-10 group-hover:scale-110 transition-all duration-300" />,
+    bg: "bg-gradient-to-r from-slate-800 to-slate-900 hover:from-slate-700",
+    text: "group-hover:text-white text-slate-300",
   },
   {
     label: "LinkedIn",
     href: "https://linkedin.com/in/asadujjaman-atik",
-    icon: <Linkedin className="w-5 h-5" />,
+    icon: <Linkedin className=" w-8 h-8 md:w-10 md:h-10 group-hover:scale-110 transition-all duration-300" />,
+    bg: "bg-gradient-to-r from-[#0077B5] to-[#005885] hover:from-[#005885] hover:to-[#003D6B]",
+    text: "group-hover:text-white text-[#0077B5]",
   },
   {
     label: "Facebook",
     href: "https://facebook.com/codewithatik",
-    icon: <Facebook className="w-5 h-5" />,
+    icon: <Facebook className="w-8 h-8 md:w-10 md:h-10 group-hover:scale-110 transition-all duration-300" />,
+    bg: "bg-gradient-to-r from-[#1877F2] to-[#0E5A9A] hover:from-[#165EB8] hover:to-[#0A5DA4]",
+    text: "text-[#1877F2] group-hover:text-white transition-colors duration-300",
   },
   {
     label: "Email",
     href: "mailto:asadatik1995@gmail.com",
-    icon: <Mail className="w-5 h-5" />,
+    icon: <Mail className="w-8 h-8 md:w-10 md:h-10 group-hover:scale-110 transition-all duration-300" />,
+    bg: "bg-gradient-to-br from-slate-600 via-slate-700 to-slate-800 hover:from-slate-500 hover:to-slate-600",
+    text: "group-hover:text-white text-slate-300",
   },
-
-
-
 ]
+
+
+// Animated social button
+function SocialButton({
+  label,
+  href,
+  icon,
+  delay = 0,
+}: {
+  label: string
+  href: string
+  icon: React.ReactNode
+  delay?: number
+}) {
+  const [isHovered, setIsHovered] = useState(false)
+
+  return (
+    <motion.a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{
+        duration: 0.5,
+        delay,
+        ease: "easeOut",
+      }}
+      whileHover={{ scale: 1.15, y: -4 }}
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
+      className="group relative p-2 md:p-4 rounded-xl   bg-gradient-to-br from-slate-800/50 to-slate-700/30 border border-cyan-500/20 hover:border-cyan-500/50 transition-all"
+      title={label}
+    >
+      {/* Hover glow */}
+      <motion.div
+        className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100"
+        animate={{
+          background: isHovered
+            ? "radial-gradient(circle at center, rgba(6, 249, 241, 0.15), transparent 70%)"
+            : "radial-gradient(circle at center, transparent, transparent)",
+        }}
+        transition={{ duration: 0.3 }}
+      />
+
+      {/* Icon with color animation */}
+      <motion.div
+        className="relative z-10 text-gray-400 group-hover:text-cyan-400 transition-colors duration-300"
+        animate={{
+          scale: isHovered ? 1.2 : 1,
+          rotate: isHovered ? 360 : 0,
+        }}
+        transition={{
+          scale: { duration: 0.3 },
+          rotate: { duration: 0.8 },
+        }}
+      >
+        {icon}
+      </motion.div>
+    </motion.a>
+  )
+}
+
+
 
 // Animated footer link component
 function FooterLinkItem({
@@ -148,67 +207,7 @@ function FooterLinkItem({
   return <Link href={href}>{linkContent}</Link>
 }
 
-// Animated social button
-function SocialButton({
-  label,
-  href,
-  icon,
-  delay = 0,
-}: {
-  label: string
-  href: string
-  icon: React.ReactNode
-  delay?: number
-}) {
-  const [isHovered, setIsHovered] = useState(false)
 
-  return (
-    <motion.a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{
-        duration: 0.5,
-        delay,
-        ease: "easeOut",
-      }}
-      whileHover={{ scale: 1.15, y: -4 }}
-      onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
-      className="group relative p-3 rounded-xl bg-gradient-to-br from-slate-800/50 to-slate-700/30 border border-cyan-500/20 hover:border-cyan-500/50 transition-all"
-      title={label}
-    >
-      {/* Hover glow */}
-      <motion.div
-        className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100"
-        animate={{
-          background: isHovered
-            ? "radial-gradient(circle at center, rgba(6, 249, 241, 0.15), transparent 70%)"
-            : "radial-gradient(circle at center, transparent, transparent)",
-        }}
-        transition={{ duration: 0.3 }}
-      />
-
-      {/* Icon with color animation */}
-      <motion.div
-        className="relative z-10 text-gray-400 group-hover:text-cyan-400 transition-colors duration-300"
-        animate={{
-          scale: isHovered ? 1.2 : 1,
-          rotate: isHovered ? 360 : 0,
-        }}
-        transition={{
-          scale: { duration: 0.3 },
-          rotate: { duration: 0.8 },
-        }}
-      >
-        {icon}
-      </motion.div>
-    </motion.a>
-  )
-}
 
 // Scroll to top button
 function ScrollToTopButton() {
@@ -278,7 +277,7 @@ const itemVariants: Variants = {
       delay: i * 0.1,
       duration: 0.4,
       ease: "easeOut",
-   
+
     },
   }),
 }
@@ -288,7 +287,7 @@ const itemVariants: Variants = {
 export function Footer() {
   return (
     <footer className="relative bg-gradient-to-b from-slate-950 via-slate-900 to-black overflow-hidden pt-20 md:pt-24 pb-8">
-    
+
       {/* Top gradient orbs */}
       <motion.div
         className="absolute top-0 right-0 w-96 h-96 rounded-full bg-gradient-to-br from-cyan-500/10 to-blue-500/5 blur-3xl pointer-events-none"
@@ -333,7 +332,7 @@ export function Footer() {
 
       {/* Main footer  */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-     
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -342,19 +341,13 @@ export function Footer() {
           className="pb-12 md:pb-16 border-b border-cyan-500/10"
         >
           {/*  heading */}
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <motion.h3
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.6,
-                delay: 0.1,
-              }}
-              className="text-3xl md:text-4xl font-bold text-white mb-4"
-            >
-              Let's Stay Connected
-            </motion.h3>
+          <div className=" text-center mb-8">
+
+            <SectionHeading
+              title="Let’s Connect"
+              highlight="Together"
+            />
+
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -395,7 +388,7 @@ export function Footer() {
 
         {/* Footer sections grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 py-12 md:py-16">
-          {/* Brand column */}
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -404,15 +397,15 @@ export function Footer() {
             className="col-span-1 md:col-span-2 lg:col-span-1"
           >
             <div className="mb-6">
-                  {/* Logo */}
-                    <LogoAdvanced variant="neon" size="lg" />
- 
+              {/* Logo */}
+              <LogoAdvanced variant="neon" size="lg" />
+
               <p className="text-sm text-gray-400 leading-relaxed">
                 Full-stack developer crafting beautiful and functional web experiences with modern technologies.
               </p>
             </div>
 
-            {/* Tech stack badges */}
+            {/* Tech  badges */}
             <div className="flex flex-wrap gap-2">
               {["Next.js", "React", "TypeScript", "Node.js"].map((tech) => (
                 <motion.span
@@ -460,7 +453,7 @@ export function Footer() {
             </motion.div>
           ))}
 
-      
+
         </div>
 
         {/* Bottom divider */}
@@ -475,7 +468,6 @@ export function Footer() {
           className="h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent origin-center"
         />
 
-        {/* Bottom footer with copyright and scroll to top */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -508,7 +500,7 @@ export function Footer() {
 
           {/* Right side actions */}
           <div className="flex items-center gap-6">
-            {/* Theme indicator */}
+
             <motion.div
               className="flex items-center gap-2 text-sm text-gray-500"
               animate={{

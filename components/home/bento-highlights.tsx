@@ -517,9 +517,9 @@ export function BentoHighlights() {
                 <motion.div
                   animate={{ y: [0, -5, 0] }}
                   transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY }}
-                  className="inline-block p-3 rounded-lg bg-gradient-to-br from-purple-500/20 to-pink-500/10 border border-purple-500/20"
+                  className="inline-block p-3 rounded-lg bg-gradient-to-br from-blue-500/20 to-cyan-500/10 border border-blue-500/20"
                 >
-                  <TrendingUp className="w-6 h-6 text-purple-400" />
+                  <TrendingUp className="w-6 h-6 text-blue-300" />
                 </motion.div>
 
                 {/* Text */}

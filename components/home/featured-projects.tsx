@@ -9,6 +9,7 @@ import { projects, type Project } from "@/data/projects"
 
 import Image from "next/image"
 import { PremiumButton } from "../premium-button"
+import { SectionHeading } from "../SectionHeading"
 
 
 export function FeaturedProjects() {
@@ -102,7 +103,7 @@ export function FeaturedProjects() {
   const currentProject = featuredProjects[currentIndex]
 
   return (
-    <section className="relative py-24 md:py-32 bg-linear-to-b from-slate-950 via-slate-900 to-slate-950 overflow-hidden">
+    <section className="relative py-16 md:py-24 bg-linear-to-b from-slate-950 via-slate-900 to-slate-950 overflow-hidden">
 
 
       <motion.div
@@ -157,6 +158,8 @@ export function FeaturedProjects() {
       <div className="container mx-auto px-4  relative z-10">
 
 
+        {/* Main */}
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -180,15 +183,19 @@ export function FeaturedProjects() {
             <span className="text-sm font-medium text-cyan-400">Featured Work</span>
           </motion.span>
 
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
-            Latest <span className="bg-linear-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">Projects</span>
-          </h2>
+
+          <SectionHeading
+            title="Latest"
+            highlight="projects"
+           
+          />
+
 
           <p className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
             A curated selection of my recent work building full-stack applications, SaaS platforms, and interactive web experiences
           </p>
         </motion.div>
-        {/* main content */}
+        {/* Elements */}
         <div
           className="relative max-w-7xl mx-auto"
           style={{ perspective: "1200px" }}
@@ -330,10 +337,10 @@ export function FeaturedProjects() {
                             <Image
                               src={currentProject.thumbnail}
                               alt={currentProject.title}
-                         
+
                               width={1200}
                               height={700}
-                                sizes="(max-width: 768px) 100vw, 896px"
+                              sizes="(max-width: 768px) 100vw, 896px"
                               className="object-cover"
                               priority={false}
                             />
@@ -514,7 +521,7 @@ export function FeaturedProjects() {
           </div>
 
 
-
+          {/*  */}
           <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-20">
             {featuredProjects.map((_, index) => (
               <motion.button
