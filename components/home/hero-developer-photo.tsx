@@ -1,4 +1,4 @@
-// components/hero-developer-photo.tsx
+
 "use client"
 
 
@@ -116,7 +116,7 @@ export function HeroDeveloperPhoto() {
 
       {/* Bottom-right morphing circle */}
       <motion.div
-        className="absolute -bottom-20 -right-20 w-96 h-96 rounded-full bg-gradient-to-tl from-purple-500/10 to-cyan-500/5 blur-3xl"
+        className="absolute -bottom-20 -right-20 w-96 h-96 rounded-full bg-gradient-to-br from-purple-500/10 to-cyan-500/5 blur-3xl"
         animate={{
           scale: [1, 0.95, 1.1, 1],
           x: [0, -30, 20, 0],
@@ -147,7 +147,7 @@ export function HeroDeveloperPhoto() {
       >
         {/* Glow border */}
         <motion.div
-          className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cyan-500/30 via-blue-500/20 to-purple-500/30 blur-xl -z-10"
+          className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cyan-500/40 via-cyan-500/40 to-blue-500/40 blur-xl -z-10"
           animate={{
             opacity: [0.5, 0.8, 0.5],
           }}

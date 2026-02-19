@@ -307,7 +307,7 @@ export function HeroSection() {
                         )}
                     </motion.div>
 
-                    {/* Right Section*/}
+ {/* Right Section*/}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95, x: 40 }}
                         animate={{ opacity: 1, scale: 1, x: 0 }}
