@@ -251,7 +251,7 @@ export function CTASection() {
 
   return (
     <section
-      className="relative py-24  bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 overflow-hidden"
+      className="relative py-10  bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 overflow-hidden"
       id="cta"
     >
       {/* Background elements */}
@@ -411,7 +411,7 @@ export function CTASection() {
             />
           </motion.div>
 
-          {/* CTA Buttons with premium styling */}
+
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -448,7 +448,7 @@ export function CTASection() {
             </Link>
           </motion.div>
 
-          {/* Footer contact info with advanced interactions */}
+ 
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -456,80 +456,9 @@ export function CTASection() {
             transition={{ delay: 1.4 }}
             className="flex flex-col md:flex-row gap-6 md:gap-12 justify-center pt-8 border-t border-cyan-500/20"
           >
-            {/* Email contact */}
-            <motion.a
-              href="mailto:hello@example.com"
-              whileHover={{
-                x: 4,
-                scale: 1.05,
-              }}
-              className="group flex items-center gap-3 cursor-pointer"
-            >
-              <motion.div
-                animate={{
-                  scale: [1, 1.2, 1],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Number.POSITIVE_INFINITY,
-                  ease: "easeInOut",
-                }}
-                className="p-2 rounded-lg bg-cyan-500/20 group-hover:bg-cyan-500/30 border border-cyan-500/40 group-hover:border-cyan-500/60 transition-all"
-              >
-                <span className="text-cyan-400 text-lg">✉️</span>
-              </motion.div>
-              <div>
-                <p className="text-xs text-gray-500 group-hover:text-gray-400 transition-colors">
-                  Drop me an email
-                </p>
-                <p className="text-sm font-bold text-cyan-400 group-hover:text-cyan-300 transition-colors">
-                  hello@example.com
-                </p>
-              </div>
-            </motion.a>
-
-            {/* Direct link */}
-            <motion.div
-              whileHover={{
-                x: 4,
-              }}
-              className="hidden md:flex items-center gap-3"
-            >
-              <motion.div
-                animate={{
-                  scale: [1, 1.2, 1],
-                }}
-                transition={{
-                  duration: 2.5,
-                  repeat: Number.POSITIVE_INFINITY,
-                  ease: "easeInOut",
-                  delay: 0.3,
-                }}
-                className="p-2 rounded-lg bg-purple-500/20 border border-purple-500/40"
-              >
-                <ArrowRight className="w-5 h-5 text-purple-400" />
-              </motion.div>
-              <div>
-                <p className="text-xs text-gray-500">Quick access</p>
-                <Link href="/contact" className="text-sm font-bold text-purple-400 hover:text-purple-300 transition-colors">
-                  Go to contact page →
-                </Link>
-              </div>
-            </motion.div>
+          
           </motion.div>
 
-          {/* Bottom accent line animation */}
-          <motion.div
-            initial={{ width: 0 }}
-            whileInView={{ width: "100%" }}
-            viewport={{ once: true }}
-            transition={{
-              duration: 1.5,
-              delay: 1.6,
-              ease: "easeOut",
-            }}
-            className="h-0.5 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-full"
-          />
         </motion.div>
       </div>
     </section>

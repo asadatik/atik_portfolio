@@ -38,10 +38,7 @@ export function BentoHighlights() {
 
   return (
     <section className="relative py-24 md:py-32 bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900 overflow-hidden">
-      {/* ============================================
-          ANIMATED BACKGROUND ELEMENTS
-          ============================================ */}
-
+  
       {/* Top right glow */}
       <motion.div
         className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-gradient-to-br from-cyan-500/10 to-blue-500/5 blur-3xl"
@@ -86,9 +83,7 @@ export function BentoHighlights() {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* ============================================
-            SECTION HEADER
-            ============================================ */}
+ {/* HEADING */}
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -122,10 +117,8 @@ export function BentoHighlights() {
           </p>
         </motion.div>
 
-        {/* ============================================
-            BENTO GRID LAYOUT
-            ============================================ */}
-
+       
+{/* CARDS */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -133,10 +126,7 @@ export function BentoHighlights() {
           viewport={{ once: true, margin: "-100px" }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6"
         >
-          {/* ============================================
-              CARD 1: FULL-STACK DEVELOPMENT (WIDE)
-              ============================================ */}
-
+       
           <motion.div
             variants={itemVariants}
             whileHover={{ y: -8, scale: 1.01 }}
@@ -227,9 +217,6 @@ export function BentoHighlights() {
             </motion.div>
           </motion.div>
 
-          {/* ============================================
-              CARD 2: EXPERIENCE & YEARS
-              ============================================ */}
 
           <motion.div
             variants={itemVariants}
@@ -307,9 +294,6 @@ export function BentoHighlights() {
             </motion.div>
           </motion.div>
 
-          {/* ============================================
-              CARD 3: FEATURED PROJECT
-              ============================================ */}
 
           <motion.div
             variants={itemVariants}
@@ -409,9 +393,7 @@ export function BentoHighlights() {
             </Link>
           </motion.div>
 
-          {/* ============================================
-              CARD 4: CURRENTLY WORKING ON (WIDE)
-              ============================================ */}
+      
 
           <motion.div
             variants={itemVariants}
@@ -505,9 +487,6 @@ export function BentoHighlights() {
             </motion.div>
           </motion.div>
 
-          {/* ============================================
-              CARD 5: CALL TO ACTION
-              ============================================ */}
 
           <motion.div
             variants={itemVariants}

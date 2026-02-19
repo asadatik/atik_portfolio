@@ -15,6 +15,9 @@ import {
   Code2,
   Zap,
   Facebook,
+  
+  ArrowUp,
+  ArrowBigUp,
  
 } from "lucide-react"
 import Image from "next/image"
@@ -79,7 +82,7 @@ const socialLinks: FooterLink[] = [
   },
   {
     label: "Email",
-    href: "asadatik1995@gmail.com",
+    href: "mailto:asadatik1995@gmail.com",
     icon: <Mail className="w-5 h-5" />,
   },
 
@@ -245,7 +248,7 @@ function ScrollToTopButton() {
       whileHover={{ scale: 1.1, y: -4 }}
       whileTap={{ scale: 0.95 }}
       onClick={scrollToTop}
-      className="p-3 rounded-xl bg-gradient-to-br from-cyan-500/30 to-blue-500/20 border border-cyan-500/50 hover:border-cyan-500/80 text-cyan-400 hover:text-cyan-300 transition-all"
+      className="p-1 rounded-full bg-linear-to-br from-cyan-500/30 to-blue-500/20 border border-cyan-500/50 hover:border-cyan-500/80 text-cyan-400 hover:text-cyan-300 transition-all"
       title="Scroll to top"
     >
       <motion.div
@@ -258,7 +261,7 @@ function ScrollToTopButton() {
           ease: "easeInOut",
         }}
       >
-        <ArrowRight className="w-5 h-5 rotate-90" />
+        <ArrowBigUp className="w-10 h-10 " />
       </motion.div>
     </motion.button>
   )
@@ -275,7 +278,7 @@ const itemVariants: Variants = {
       delay: i * 0.1,
       duration: 0.4,
       ease: "easeOut",
-      // or if TS complains: ease: [0.17, 0.67, 0.83, 0.67],
+   
     },
   }),
 }
@@ -285,10 +288,7 @@ const itemVariants: Variants = {
 export function Footer() {
   return (
     <footer className="relative bg-gradient-to-b from-slate-950 via-slate-900 to-black overflow-hidden pt-20 md:pt-24 pb-8">
-      {/* ============================================
-          ANIMATED BACKGROUND ELEMENTS
-          ============================================ */}
-
+    
       {/* Top gradient orbs */}
       <motion.div
         className="absolute top-0 right-0 w-96 h-96 rounded-full bg-gradient-to-br from-cyan-500/10 to-blue-500/5 blur-3xl pointer-events-none"
@@ -331,9 +331,9 @@ export function Footer() {
         />
       </div>
 
-      {/* Main footer content */}
+      {/* Main footer  */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Top section with divider */}
+     
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -341,7 +341,7 @@ export function Footer() {
           transition={{ duration: 0.8 }}
           className="pb-12 md:pb-16 border-b border-cyan-500/10"
         >
-          {/* Main heading */}
+          {/*  heading */}
           <div className="max-w-3xl mx-auto text-center mb-12">
             <motion.h3
               initial={{ opacity: 0, y: 20 }}
@@ -460,50 +460,7 @@ export function Footer() {
             </motion.div>
           ))}
 
-          {/* Newsletter section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{
-              duration: 0.6,
-              delay: 0.4,
-            }}
-            className="col-span-1 lg:col-span-1"
-          >
-            <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-widest">
-              Quick Links
-            </h4>
-
-            <div className="space-y-3">
-              <motion.a
-                href="/projects"
-                whileHover={{ x: 4 }}
-                className="flex items-center gap-2 text-sm text-gray-300 hover:text-cyan-400 transition-colors group"
-              >
-                <Code2 className="w-4 h-4 group-hover:text-cyan-400" />
-                View All Projects
-              </motion.a>
-
-              <motion.a
-                href="/contact"
-                whileHover={{ x: 4 }}
-                className="flex items-center gap-2 text-sm text-gray-300 hover:text-cyan-400 transition-colors group"
-              >
-                <Mail className="w-4 h-4 group-hover:text-cyan-400" />
-                Get In Touch
-              </motion.a>
-
-              <motion.a
-                href="/"
-                whileHover={{ x: 4 }}
-                className="flex items-center gap-2 text-sm text-gray-300 hover:text-cyan-400 transition-colors group"
-              >
-                <Zap className="w-4 h-4 group-hover:text-cyan-400" />
-                Back to Home
-              </motion.a>
-            </div>
-          </motion.div>
+      
         </div>
 
         {/* Bottom divider */}
@@ -566,13 +523,13 @@ export function Footer() {
               <span>Dark Mode</span>
             </motion.div>
 
-            {/* Scroll to top button */}
+            {/* top button */}
             <ScrollToTopButton />
           </div>
         </motion.div>
       </div>
 
-      {/* Floating particles in footer */}
+      {/* Floating particles*/}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {[0, 1, 2].map((idx) => (
           <motion.div

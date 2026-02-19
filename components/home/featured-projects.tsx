@@ -330,8 +330,10 @@ export function FeaturedProjects() {
                             <Image
                               src={currentProject.thumbnail}
                               alt={currentProject.title}
-                              fill
-
+                         
+                              width={1200}
+                              height={700}
+                                sizes="(max-width: 768px) 100vw, 896px"
                               className="object-cover"
                               priority={false}
                             />
@@ -447,7 +449,7 @@ export function FeaturedProjects() {
                         transition={{ delay: 0.3 }}
                         className="flex items-center gap-4 pt-6 border-t border-cyan-500/20"
                       >
-                       
+
                         <Link href={`/projects/${currentProject.slug}`}>
                           <PremiumButton
                             text="Details"

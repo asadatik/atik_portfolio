@@ -196,7 +196,9 @@ interface MarqueeProps {
   color: string
 }
 
-function SkillMarquee({ skills, direction, duration, label, color }: MarqueeProps) {
+// Marquee component for each skill category
+
+function SkillMarquee({ skills, direction, duration, label, }: MarqueeProps) {
   const [isHovered, setIsHovered] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
 
@@ -222,7 +224,7 @@ function SkillMarquee({ skills, direction, duration, label, color }: MarqueeProp
           transition={{ duration: 2.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
           className={`w-1.5 h-12 rounded-full bg-gradient-to-b from-cyan-400 via-cyan-300 to-cyan-500 shadow-lg shadow-cyan-400/50`}
         />
-        <h3 className="text-2xl md:text-3xl font-black text-transparent bg-gradient-to-r from-cyan-300 to-cyan-400 bg-clip-text uppercase tracking-widest">
+        <h3 className="text-2xl md:text-3xl font-black  text-white bg-clip-text uppercase tracking-widest">
           {label}
         </h3>
         <motion.div
@@ -359,6 +361,8 @@ function SkillMarquee({ skills, direction, duration, label, color }: MarqueeProp
   )
 }
 
+
+// Floating particle background component
 function FloatingParticles() {
   const [particles, setParticles] = useState<any[]>([])
 
@@ -409,6 +413,7 @@ function FloatingParticles() {
   )
 }
 
+// 
 function SkillIconsFooter() {
   return (
     <motion.div
@@ -422,7 +427,7 @@ function SkillIconsFooter() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        className="text-center text-sm font-bold text-cyan-300/80 uppercase tracking-widest mb-14"
+        className="text-center text-xl font-bold text-cyan-100/80 uppercase tracking-widest mb-14"
       >
         Technology Stack & Expertise
       </motion.h4>
@@ -489,6 +494,7 @@ function SkillIconsFooter() {
   )
 }
 
+
 function AnimatedBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -530,7 +536,9 @@ function AnimatedBackground() {
   )
 }
 
-export function SkillsShowcase() {
+
+
+export default  function SkillsPage() {
   return (
     <section className="relative py-10 md:py-20 bg-gradient-to-b from-slate-950 via-slate-900/50 to-slate-950 overflow-hidden" id="skills">
       <AnimatedBackground />
@@ -628,7 +636,3 @@ export function SkillsShowcase() {
 
 
 
-// MAIN PAGE COMPONENT
-export default function SkillsPage() {
-  return <SkillsShowcase />
-}

@@ -37,7 +37,7 @@ const itemVariants: Variants = {
       delay: i * 0.1,
       duration: 0.4,
       ease: "easeOut",
-      // or if TS complains: ease: [0.17, 0.67, 0.83, 0.67],
+     
     },
   }),
 }
@@ -302,10 +302,10 @@ export function Header() {
 
       {/* Scroll progress bar */}
       <motion.div
-        className="fixed top-16 left-0 h-[2px] bg-linear-to-r from-cyan-500 via-purple-500 to-cyan-500 z-50"
+        className="fixed top-16 left-0 h-[2px] bg-linear-to-r from-cyan-500  to-cyan-600 z-50"
         style={{
           width: `${scrollProgress}%`,
-          background: "linear-gradient(90deg, #06f9f1, #a855f7, #06f9f1)",
+          background: "linear-gradient(90deg, rgba(6,182,212,1) 0%, rgba(14,165,233,1) 100%)",
         }}
         transition={{ duration: 0.1 }}
       />

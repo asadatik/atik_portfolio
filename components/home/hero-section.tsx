@@ -128,7 +128,7 @@ export function HeroSection() {
                     }}
                 />
 
-                {/* Parallax grid background */}
+                {/* Parallax */}
                 <motion.div
                     className="absolute inset-0 opacity-10"
                     style={{
@@ -144,10 +144,10 @@ export function HeroSection() {
                 />
             </div>
 
-            {/* Container */}
+ {/* Container */}
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center min-h-[calc(100vh-120px)]">
-                    {/* Left Content */}
+   {/* Left Content */}
                     <motion.div
                         variants={containerVariants}
                         initial="hidden"

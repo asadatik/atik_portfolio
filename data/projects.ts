@@ -14,6 +14,7 @@ export interface Project {
     database: string[]
     other: string[]
   }
+  stack: string[]
   features: string[]
   result: string
   metrics?: string[]
@@ -32,7 +33,7 @@ export const projects: Project[] = [
   tagline: "Role-based travel booking platform with secure payments and admin control",
 
   description:
-    "A full-stack travel booking platform where users can explore travel packages, create bookings, and manage payments, while admins control packages, bookings, and payment workflows through a secure dashboard.",
+    "TripNest is a full-stack travel booking platform where users can explore travel packages, create bookings, and manage payments, while admins control packages, bookings, and payment workflows through a secure dashboard.",
 
   type: "Full-stack",
   featured: true,
@@ -68,7 +69,17 @@ export const projects: Project[] = [
       "Dashboard Analytics"
     ]
   },
-
+  stack: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Redux Toolkit",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Mongoose",
+      "Stripe"
+    ],
   features: [
     "Role-based authentication for Admin and User",
     "Secure JWT authentication using HttpOnly cookies",
@@ -136,12 +147,23 @@ export const projects: Project[] = [
     ],
     "database": ["MongoDB", "Mongoose"],
     "other": [
-      "EmailJS / Nodemailer / Mailgun",
+      "EmailJS",
       "QR Code Generation",
       "Chart.js / Recharts",
       "Three.js & AR/3D venue visualization"
     ]
   },
+  stack: [
+      "Next.js",
+      "React.js",
+      "Tailwind CSS",
+      "Radix UI",
+      "Framer Motion",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Stripe API"
+    ],
 
   "features": [
     "Role-based dashboards for Admin, Organizer, and User",
@@ -211,6 +233,18 @@ export const projects: Project[] = [
       "Stripe Checkout & Webhooks"
     ]
   },
+
+ stack: [
+      "React.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Redux Toolkit",
+      "Framer Motion",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Stripe API"
+    ],
 
   features: [
     "Role-based authentication for Admin, Sender, and Receiver",
