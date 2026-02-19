@@ -133,8 +133,9 @@ export function BentoHighlights() {
           viewport={{ once: true, margin: "-100px" }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6"
         >
-
-          <motion.div
+     {/* 1st card */}
+     
+         <motion.div
             variants={itemVariants}
             whileHover={{ y: -8, scale: 1.01 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -161,7 +162,7 @@ export function BentoHighlights() {
 
               {/* Content */}
               <div className="relative z-10 space-y-4">
-                {/* Icon with animation */}
+        
                 <motion.div
                   whileHover={{ rotate: -10 }}
                   transition={{ type: "spring", stiffness: 400, damping: 15 }}
@@ -170,7 +171,6 @@ export function BentoHighlights() {
                   <Code2 className="w-6 h-6 text-cyan-400" />
                 </motion.div>
 
-                {/* Label */}
                 <motion.span
                   className="inline-block text-sm font-semibold text-cyan-400 uppercase tracking-wider"
                   animate={{ letterSpacing: [0, 0.5, 0] }}
@@ -224,7 +224,7 @@ export function BentoHighlights() {
             </motion.div>
           </motion.div>
 
-
+{/*  */}
           <motion.div
             variants={itemVariants}
             whileHover={{ y: -8, scale: 1.01 }}
@@ -251,13 +251,13 @@ export function BentoHighlights() {
                 <motion.div
                   whileHover={{ scale: 1.15 }}
                   transition={{ type: "spring", stiffness: 400 }}
-                  className="inline-block p-3 rounded-lg bg-gradient-to-br from-purple-500/20 to-pink-500/10 border border-purple-500/20"
+                  className="inline-block p-3 rounded-lg bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-500/20"
                 >
-                  <Briefcase className="w-6 h-6 text-purple-400" />
+                  <Briefcase className="w-6 h-6 text-cyan-300" />
                 </motion.div>
 
                 {/* Label */}
-                <span className="inline-block text-sm font-semibold text-purple-400 uppercase tracking-wider">
+                <span className="inline-block text-sm font-semibold text-cyan-400 uppercase tracking-wider">
                   Professional Background
                 </span>
 
@@ -270,7 +270,7 @@ export function BentoHighlights() {
                   className="space-y-2"
                 >
                   <motion.div
-                    className="text-6xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
+                    className="text-6xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent"
                     animate={{
                       scale: [1, 1.05, 1],
                     }}
@@ -293,15 +293,17 @@ export function BentoHighlights() {
                 className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100"
                 style={{
                   border: "2px solid transparent",
-                  backgroundImage: "linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(236, 72, 153, 0.1))",
+                  backgroundImage: "linear-gradient(135deg, rgba(6, 249, 241, 0.2), rgba(168, 85, 247, 0.1))",
                   backgroundOrigin: "border-box",
                   WebkitBackgroundClip: "padding-box, border-box",
                 }}
               />
+
+
             </motion.div>
           </motion.div>
 
-
+{/*  */}
           <motion.div
             variants={itemVariants}
             whileHover={{ y: -8, scale: 1.01 }}
@@ -327,7 +329,7 @@ export function BentoHighlights() {
                 <motion.div
                   initial={{ opacity: 0 }}
                   whileHover={{ opacity: 1 }}
-                  className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-cyan-500/5 transition-opacity"
+                  className="absolute inset-0 bg-linear-to-br from-blue-500/5 to-cyan-500/5 transition-opacity"
                 />
 
                 {/* Content */}
@@ -342,7 +344,7 @@ export function BentoHighlights() {
                   </motion.div>
 
                   {/* Label */}
-                  <span className="inline-block text-sm font-semibold text-blue-400 uppercase tracking-wider">
+                  <span className="inline-block text-sm font-semibold text-cyan-400 uppercase tracking-wider">
                     Featured Project
                   </span>
 
@@ -401,7 +403,7 @@ export function BentoHighlights() {
           </motion.div>
 
 
-
+{/*  */}
           <motion.div
             variants={itemVariants}
             whileHover={{ y: -8, scale: 1.01 }}
@@ -494,7 +496,7 @@ export function BentoHighlights() {
             </motion.div>
           </motion.div>
 
-
+{/*  */}
           <motion.div
             variants={itemVariants}
             whileHover={{ y: -8, scale: 1.01 }}
@@ -507,13 +509,7 @@ export function BentoHighlights() {
                 borderColor: "rgba(6, 249, 241, 0.3)",
               }}
             >
-              {/* Background glow */}
-              <motion.div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                style={{
-                  background: "radial-gradient(circle at center, rgba(168, 85, 247, 0.1) 0%, transparent 70%)",
-                }}
-              />
+             
 
               {/* Content */}
               <div className="relative z-10 space-y-6">
@@ -551,15 +547,16 @@ export function BentoHighlights() {
               </div>
 
               {/* Border glow */}
-              <motion.div
-                className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100"
-                style={{
-                  border: "2px solid transparent",
-                  backgroundImage: "linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(236, 72, 153, 0.1))",
-                  backgroundOrigin: "border-box",
-                  WebkitBackgroundClip: "padding-box, border-box",
-                }}
-              />
+          
+                <motion.div
+                  className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100"
+                  style={{
+                    border: "2px solid transparent",
+                    backgroundImage: "linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(6, 249, 241, 0.1))",
+                    backgroundOrigin: "border-box",
+                    WebkitBackgroundClip: "padding-box, border-box",
+                  }}
+                />
             </motion.div>
           </motion.div>
         </motion.div>
