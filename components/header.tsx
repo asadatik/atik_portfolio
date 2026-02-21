@@ -290,7 +290,7 @@ export function Header() {
                 onClick={() => {
                   const link = document.createElement("a")
                   link.href = "/resume.pdf"
-                  link.download = "resume.pdf"
+                  link.download = "Asadujjaman-Atik-Resume.pdf"
                   link.click()
                   setMobileMenuOpen(false)
                 }}

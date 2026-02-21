@@ -28,15 +28,13 @@ const labelSizes = {
 }
 
 const variantGradients = {
-  primary: {
-    gradient:
-      "conic-gradient(from 0deg, #06f9f1 0%, #0ea5e9 25%, #3b82f6 50%, #06f9f1 75%, #06f9f1 100%)",
-    glow: "rgba(6, 249, 241, 0.35)",
-    border: "rgba(6, 249, 241, 0.2)",
+ primary: {
+    gradient: "conic-gradient(from 0deg at 50% 50%, #00d4ff 0%, #0099cc 30%, #0066b3 70%, #00d4ff 100%)",
+    glow: "rgba(0, 212, 255, 0.25)",      // Heavy 0.35 → soft 0.25
+    border: "rgba(0, 212, 255, 0.15)",   // Heavy 0.2 → soft 0.15
   },
   secondary: {
-    gradient:
-      "conic-gradient(from 0deg, #a855f7 0%, #ec4899 25%, #f97316 50%, #a855f7 75%, #a855f7 100%)",
+    gradient: "conic-gradient(from 0deg, #a855f7 0%, #ec4899 25%, #f97316 50%, #a855f7 75%, #a855f7 100%)",
     glow: "rgba(168, 85, 247, 0.35)",
     border: "rgba(168, 85, 247, 0.2)",
   },

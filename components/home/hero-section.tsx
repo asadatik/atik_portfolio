@@ -10,6 +10,7 @@ import { PremiumButton } from "@/components/premium-button"
 import { HeroDeveloperPhoto } from "./hero-developer-photo"
 import Link from "next/link"
 import { Poppins, Inter, Luckiest_Guy, Lora, Nosifer } from "next/font/google"
+import { ResumeButton } from "../resume-button"
 
 
 
@@ -242,10 +243,7 @@ export function HeroSection() {
                                 ))}
                             </p>
                         </motion.div>
-
-
-
-                        {/* CTA Buttons */}
+   {/* CTA Buttons */}
                         {isTypingComplete && (
                             <motion.div
                                 initial={{ opacity: 0, y: 15 }}
@@ -257,22 +255,12 @@ export function HeroSection() {
                                     <PremiumButton
                                         text="View Projects"
                                         icon="→"
-                                        variant="success"
+                                        variant="primary"
                                         size="medium"
                                     />
                                 </Link>
-                                <PremiumButton
-                                    text="Resume"
-                                    icon="↓"
-                                    variant="primary"
-                                    size="medium"
-                                    onClick={() => {
-                                        const link = document.createElement("a");
-                                        link.href = "/resume.pdf";
-                                        link.download = "Asadujjaman-Atik-Resume.pdf";
-                                        link.click();
-                                    }}
-                                />
+                              <ResumeButton />
+                                
                             </motion.div>
                         )}
 
