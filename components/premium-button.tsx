@@ -63,6 +63,9 @@ export const PremiumButton = React.forwardRef<HTMLButtonElement, PremiumButtonPr
       onDrag,
       onDragStart,
       onDragEnd,
+      onAnimationStart,
+      onAnimationEnd,
+      onAnimationIteration,
       ...props
     },
     ref,
@@ -113,7 +116,7 @@ export const PremiumButton = React.forwardRef<HTMLButtonElement, PremiumButtonPr
           />
         </motion.div>
 
-{/* GLASSMORPHISM EFFECT */}
+{/* GLASSMORPHISM  */}
         <motion.div
           className="absolute inset-0 rounded-full"
           style={{
@@ -137,9 +140,6 @@ export const PremiumButton = React.forwardRef<HTMLButtonElement, PremiumButtonPr
           }}
         />
 
-        {/* ============================================
-            INNER LABEL (TEXT CONTAINER)
-            ============================================ */}
         <motion.div
           className={cn(
             "relative z-10 rounded-full bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 border transition-all duration-300 flex items-center justify-center gap-2",
@@ -193,8 +193,8 @@ export const PremiumButton = React.forwardRef<HTMLButtonElement, PremiumButtonPr
             </motion.div>
           )}
         </motion.div>
-{/* GLASSMORPHISM EFFECT */}
-        {!loading && !disabled && (
+        
+          {!loading && !disabled && (
           <motion.div
             className="absolute inset-0 pointer-events-none rounded-lg"
             whileTap={{

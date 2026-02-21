@@ -6,6 +6,7 @@ import "./globals.css"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { profile } from "@/data/profile"
+import SocialLinks from "@/components/social-links"
 
 const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
@@ -44,6 +45,7 @@ export default function RootLayout({
       <body className={`${_geist.className} font-sans antialiased`}>
         <Header />
         <main className="min-h-[80vh] pt-16">{children}</main>
+        <SocialLinks />
         <Footer />
         <Analytics />
       </body>

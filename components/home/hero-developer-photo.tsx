@@ -116,7 +116,7 @@ export function HeroDeveloperPhoto() {
 
       {/* Bottom-right morphing circle */}
       <motion.div
-        className="absolute -bottom-20 -right-20 w-96 h-96 rounded-full bg-gradient-to-br from-purple-500/10 to-cyan-500/5 blur-3xl"
+        className="absolute -bottom-20 -right-20 w-96 h-96 rounded-full bg-gradient-to-br from-blue-500/10 to-cyan-500/5 blur-3xl"
         animate={{
           scale: [1, 0.95, 1.1, 1],
           x: [0, -30, 20, 0],
@@ -131,7 +131,7 @@ export function HeroDeveloperPhoto() {
       />
 
 
-
+{/*  */}
       <motion.div
         className="relative w-80 h-96 md:w-96  md:h-[480px]"
         animate={{
@@ -147,7 +147,7 @@ export function HeroDeveloperPhoto() {
       >
         {/* Glow border */}
         <motion.div
-          className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cyan-500/40 via-cyan-500/40 to-blue-500/40 blur-xl -z-10"
+          className="absolute inset-0  bg-gradient-to-r from-cyan-500/20 via-cyan-500/30 to-blue-500/30 blur-xl -z-10"
           animate={{
             opacity: [0.5, 0.8, 0.5],
           }}
@@ -160,7 +160,7 @@ export function HeroDeveloperPhoto() {
 
         {/* Inner glow */}
         <motion.div
-          className="absolute inset-0 rounded-full border-4 border-cyan-400/30 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 backdrop-blur-xl overflow-hidden"
+          className="absolute inset-0 rounded-full border-3 border-cyan-400/30 bg-gradient-to-br from-cyan-500/5 to-blue-500/5 backdrop-blur-xl overflow-hidden"
           animate={{
             borderColor: [
               "rgba(6, 249, 241, 0.3)",

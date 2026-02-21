@@ -264,7 +264,7 @@ export function HeroSection() {
                                 <PremiumButton
                                     text="Resume"
                                     icon="↓"
-                                    variant="secondary"
+                                    variant="primary"
                                     size="medium"
                                     onClick={() => {
                                         const link = document.createElement("a");
