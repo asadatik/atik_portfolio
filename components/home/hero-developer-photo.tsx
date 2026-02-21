@@ -47,7 +47,7 @@ const skills: SkillIcon[] = [
   {
     name: "Node.js & Express",
     icon: SiNodedotjs,
-    color: "from-emerald-400/40 to-green-500/40",
+    color: "from-sky-400/40 to-cyan-500/0",
     description: "APIs, backend services",
   },
 
@@ -61,7 +61,7 @@ const skills: SkillIcon[] = [
     {
     name: "MongoDB",
     icon: SiMongodb,
-    color: "from-emerald-400/40 to-emerald-500/0",
+    color: "ffrom-sky-400/40 to-cyan-500/0",
     description: "Document database",
   },
 ]

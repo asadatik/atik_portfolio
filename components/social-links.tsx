@@ -6,7 +6,7 @@ import { MdEmail } from "react-icons/md";
 
 export default function SocialLinks() {
   return (
-    <div className="fixed  right-3 md:right-6 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-6 text-2xl">
+    <div className="fixed  right-3 md:right-6 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-3 md:gap-4 text-2xl md:text-3xl  ">
       
       <Link
         href="https://wa.me/8801835210087"
@@ -21,7 +21,7 @@ export default function SocialLinks() {
         href="https://linkedin.com/in/asadujjaman-atik"
         target="_blank"
         aria-label="LinkedIn"
-        className="text-blue-600 hover:scale-110 transition-all duration-200"
+        className="text-blue-400 hover:scale-110 transition-all duration-200"
       >
         <FaLinkedin />
       </Link>
@@ -38,7 +38,7 @@ export default function SocialLinks() {
       <Link
         href="mailto:asadatik1995@gmail.com"
         aria-label="Email"
-        className="text-red-500 hover:scale-110 transition-all duration-200"
+        className="text-[#4285F4] hover:scale-110 transition-all duration-200"
       >
         <MdEmail />
       </Link>
