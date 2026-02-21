@@ -19,11 +19,11 @@ export function ResumeButton() {
       transition={{ duration: 0.6, delay: 0.4 }}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      className="group relative  px-2 py-1 rounded-xl font-medium text-base md:text-lg text-white overflow-hidden"
+      className="group relative  px-2  rounded-2xl  text-base md:text-lg text-white overflow-hidden"
     >
       {/* Glow background */}
       <motion.div
-        className="absolute -inset-1 rounded-xl bg-gradient-to-r from-cyan-500/40 to-blue-500/20 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-cyan-500/40 to-blue-500/20 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         animate={{
           opacity: [0, 0.3, 0],
         }}
@@ -34,7 +34,7 @@ export function ResumeButton() {
       />
 
       {/* Button background */}
-      <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-cyan-500/30 to-blue-500/10 border-1 border-cyan-400/50 group-hover:border-cyan-300/70 transition-all duration-300" />
+      <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cyan-500/30 to-blue-500/10 border-1 border-cyan-400/50 group-hover:border-cyan-300/70 transition-all duration-300" />
 
       {/* Content */}
       <motion.div
