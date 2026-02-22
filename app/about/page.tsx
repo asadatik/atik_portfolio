@@ -53,7 +53,7 @@ const techStack = [
 const stats = [
   { value: '2+', label: 'Years Exp.' },
   { value: '15+', label: 'Projects' },
-  { value: '11', label: 'Technologies' },
+  { value: '11+', label: 'Technologies' },
 ]
 
 const fadeUp: Variants = {
