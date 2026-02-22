@@ -339,16 +339,7 @@ function SkillMarquee({ skills, direction, duration, label, }: MarqueeProps) {
                 >
                   {skill.name}
                 </motion.div>
-                <motion.div 
-                  className="text-xs font-black text-cyan-300 font-mono tracking-widest drop-shadow-lg"
-                  animate={{ 
-                    scale: [1, 1.1, 1],
-                    opacity: [0.8, 1, 0.8]
-                  }}
-                  transition={{ duration: 2.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-                >
-                  {skill.level}%
-                </motion.div>
+             
               </motion.div>
             </motion.div>
           ))}
@@ -558,16 +549,16 @@ export default  function SkillsPage() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1, type: "spring", stiffness: 200 }}
-            className="inline-flex items-center gap-4 px-8 py-4 rounded-full border-2 border-cyan-400/40 bg-gradient-to-r from-cyan-500/15 via-blue-500/10 to-cyan-500/15 mb-12 backdrop-blur-xl shadow-2xl hover:border-cyan-300/70 transition-all duration-300"
+            className="inline-flex items-center gap-1 md:gap-4 p-2 md:px-8 md:py-4 rounded-full border-2 border-cyan-400/40 bg-gradient-to-r from-cyan-500/15 via-blue-500/10 to-cyan-500/15 mb-12 backdrop-blur-xl shadow-2xl hover:border-cyan-300/70 transition-all duration-300"
           >
             <motion.div
               animate={{ rotate: 360, scale: [1, 1.2, 1] }}
               transition={{ duration: 3.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
               className="drop-shadow-lg"
             >
-              <Sparkles className="w-7 h-7 text-cyan-300 stroke-2" />
+              <Sparkles className=" w-4 h-4 md:w-7 md:h-7 text-cyan-300 stroke-2" />
             </motion.div>
-            <span className="text-base md:text-lg font-black text-cyan-300 uppercase tracking-widest">
+            <span className="text-base md:text-lg font-medium  md:font-black text-cyan-300 uppercase tracking-widest">
               Professional Expertise
             </span>
           </motion.div>

@@ -12,7 +12,7 @@ export const profile = {
   currentlyWorkingOn: "An AI-powered analytics dashboard for e-commerce businesses",
   yearsOfExperience: 2,
   email: "asadatik1995@gmail.com",
-  resumeUrl: "/Resume_of_Atik2.pdf",
+  resumeUrl: "/resume.pdf",
   social: {
     github: "https://github.com/asadatik",
     linkedin: "https://linkedin.com/in/asadujjaman-atik",
