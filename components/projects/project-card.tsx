@@ -126,7 +126,8 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           >
             {/* Title */}
             <motion.h3
-              className={`text-4xl md:text-5xl  leading-tight  uppercase font-bold text-foreground ${nosifer.className} mb-4 bg-gradient-to-r from-cyan-400/80 via-cyan-300/50 to-blue-400/30 bg-clip-text text-transparent`}
+              className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight uppercase font-bold text-foreground tracking-tight ${nosifer.className} mb-4 bg-gradient-to-r from-cyan-400/80 via-cyan-300/50 to-blue-400/30 bg-clip-text text-transparent drop-shadow-lg`}
+
               animate={{
                 backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
               }}

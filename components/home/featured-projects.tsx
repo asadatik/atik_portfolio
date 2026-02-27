@@ -232,7 +232,7 @@ export function FeaturedProjects() {
             ))}
           </div>
 
-          {/*  carousel  */}
+     {/*  carousel  */}
           <div className="relative  flex items-center justify-center">
             <AnimatePresence initial={false} custom={direction} mode="wait">
               <motion.div
@@ -251,7 +251,7 @@ export function FeaturedProjects() {
 
                 className="w-full max-w-4xl px-4 md:px-0"
               >
-                {/* Card */}
+         {/* Card */}
                 <motion.div
 
                   className="rounded-2xl overflow-hidden relative group h-full"
@@ -521,7 +521,7 @@ export function FeaturedProjects() {
           </div>
 
 
-          {/*  */}
+  {/* projects   */}
           <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-20">
             {featuredProjects.map((_, index) => (
               <motion.button
