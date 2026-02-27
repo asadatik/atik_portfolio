@@ -438,7 +438,7 @@ function AvailabilityStrip() {
   )
 }
 
-//  Page
+// Main page component
 
 export default function ContactPage() {
   return (
@@ -449,7 +449,7 @@ export default function ContactPage() {
 
       <main className="relative z-10 container mx-auto px-4  lg:px-10 max-w-7xl py-16 md:py-24 ">
 
-        {/* ── Page header ── */}
+        {/*  header */}
         <div className="mb-20">
           <motion.div {...fadeUp(0)} className="inline-flex items-center gap-3 mb-8">
             <span className="h-px w-8 bg-cyan-400/50" />
