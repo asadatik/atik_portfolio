@@ -1,4 +1,4 @@
-// components/footer.tsx
+
 "use client"
 
 import { motion, type Variants } from "framer-motion"
@@ -283,10 +283,10 @@ const itemVariants: Variants = {
 }
 
 
-
+// Main  component
 export function Footer() {
   return (
-    <footer className="relative bg-gradient-to-b from-slate-950 via-slate-900 to-black overflow-hidden pt-20 md:pt-24 pb-8">
+    <footer className="relative bg-gradient-to-b px-4 from-slate-950 via-slate-900 to-black overflow-hidden pt-20 md:pt-24 pb-8">
 
       {/* Top gradient orbs */}
       <motion.div
@@ -316,7 +316,7 @@ export function Footer() {
         }}
       />
 
-      {/* Grid background */}
+  {/* Grid background */}
       <div className="absolute inset-0 opacity-5 pointer-events-none">
         <div
           className="w-full h-full"
@@ -330,9 +330,8 @@ export function Footer() {
         />
       </div>
 
-      {/* Main footer  */}
+ {/* Main footer  */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -521,7 +520,7 @@ export function Footer() {
         </motion.div>
       </div>
 
-      {/* Floating particles*/}
+
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {[0, 1, 2].map((idx) => (
           <motion.div
