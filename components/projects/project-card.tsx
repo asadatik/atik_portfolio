@@ -36,7 +36,7 @@ const nosifer = Nosifer({ subsets: ["latin"], weight: ["400"] })
 
 export function ProjectCard({ project, index }: ProjectCardProps) {
   const isEven = index % 2 === 0;
-
+  console.log("Rendering ProjectCard:", project);
   return (
     <motion.div
       initial={{ opacity: 0, y: 100 }}

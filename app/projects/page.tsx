@@ -5,6 +5,8 @@ import { Sparkles } from "lucide-react";
 import { projects } from "@/data/projects";
 import { ProjectCard } from "@/components/projects/project-card";
 
+
+
 function AnimatedBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -89,6 +91,9 @@ function FloatingParticles() {
 }
 
 export default function ProjectsPage() {
+
+
+
   return (
     <section className="relative py-10 md:py-16  bg-gradient-to-b from-slate-950 via-slate-900/50 to-slate-950 overflow-hidden" id="projects">
       <AnimatedBackground />
@@ -159,7 +164,7 @@ export default function ProjectsPage() {
             <ProjectCard key={project.slug} project={project} index={index} />
           ))}
         </div>
-
+    
       </div>
     </section>
   );

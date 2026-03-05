@@ -160,7 +160,7 @@ export function HeroSection() {
                             <p className={`text-sm md:text-base tracking-widest text-muted-foreground uppercase font-medium ${inter.className}`}>
                                 Hello, I'm
                             </p>
-                            <h2 className={`text-3xl md:text-4xl uppercase font-bold text-foreground ${nosifer.className}`}>
+                            <h2 className={`text-3xl md:text-5xl uppercase font-bold text-foreground ${nosifer.className}`}>
                                 Asadujjaman{" "}
                                 <span className="text-primary">Atik</span>
                             </h2>
