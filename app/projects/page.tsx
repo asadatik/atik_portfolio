@@ -95,7 +95,7 @@ export default function ProjectsPage() {
 
 
   return (
-    <section className="relative py-10 md:py-16  bg-gradient-to-b from-slate-950 via-slate-900/50 to-slate-950 overflow-hidden" id="projects">
+    <section className="relative py-10 md:py-16  bg-linear-to-b from-slate-950 via-slate-900/50 to-slate-950 overflow-hidden" id="projects">
       <AnimatedBackground />
       <FloatingParticles />
 
@@ -136,7 +136,7 @@ export default function ProjectsPage() {
           >
             Featured{" "}
             <motion.span
-              className="bg-gradient-to-r from-cyan-300 via-cyan-400 to-blue-400 bg-clip-text text-transparent drop-shadow-2xl"
+              className="bg-linear-to-r from-cyan-300 via-cyan-400 to-blue-400 bg-clip-text text-transparent drop-shadow-2xl"
               animate={{
                 backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
               }}

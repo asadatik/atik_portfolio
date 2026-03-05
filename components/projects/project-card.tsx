@@ -59,7 +59,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         <div className={`grid gap-8 lg:gap-12 items-center ${
           isEven ? "lg:grid-cols-[60%_40%]" : "lg:grid-cols-[40%_60%]"
         }`}>
-          {/* Image Section */}
+      {/* Image Section */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -68,7 +68,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             className={`relative group ${isEven ? "" : "lg:order-last"}`}
           >
             <div className="relative rounded-3xl overflow-hidden border-2 border-cyan-400/40 shadow-2xl">
-              {/* Gradient overlay on hover */}
+      
               <motion.div
                 className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-transparent to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
                 animate={{
@@ -116,7 +116,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             </div>
           </motion.div>
 
-          {/* Content Section */}
+      {/* Content Section */}
           <motion.div
             initial={{ opacity: 0, x: isEven ? 40 : -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -126,7 +126,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           >
             {/* Title */}
             <motion.h3
-              className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight uppercase font-bold text-foreground tracking-tight ${nosifer.className} mb-4 bg-gradient-to-r from-cyan-400/80 via-cyan-300/50 to-blue-400/30 bg-clip-text text-transparent drop-shadow-lg`}
+              className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl  leading-tight uppercase font-bold text-foreground tracking-tight ${nosifer.className} mb-4 bg-gradient-to-r from-cyan-400/80 via-cyan-300/50 to-blue-400/30 bg-clip-text text-transparent drop-shadow-lg`}
 
               animate={{
                 backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
@@ -140,12 +140,12 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
 
            
 
-            {/* Description */}
+    {/*  */}
             <p className="text-base text-gray-400 leading-relaxed mb-8">
               {project.description}
             </p>
 
-            {/* Tech Stack Grid */}
+          {/* Tech Stack */}
             <div className="mb-4">
               <h4 className="text-sm font-bold text-white uppercase tracking-widest mb-2">
                 Tech Stack
