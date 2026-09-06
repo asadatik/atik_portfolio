@@ -27,8 +27,3 @@ Showcases skills, projects, and interactive UI with modern glassmorphism and mot
 - **UI Components:** shadcn/ui
 - **Icons:** Lucide React
 
-
-## License
-
-This portfolio template is open source and free to use for personal projects.
-
